@@ -15,21 +15,29 @@ from webdriver_manager.chrome import ChromeDriverManager
 import random
 import string
 from seleniumwire import webdriver
-from Automation.Beelinks_New.Pages.dashboard import dshb
-from Automation.Beelinks_New.Pages.login import llogin
 
-from Automation.Beelinks_New.Pages.download import Dnld
-from Automation.Beelinks_New.Pages.agenstscroll import scroll
+################### import of classes from different pages #####################################
+
+from Automation.Beelinks_New.Pages.login import llogin
+from Automation.Beelinks_New.Pages.createagent import Createagent
+from Automation.Beelinks_New.Pages.create_ticket import create_tickets
+
+from Automation.Beelinks_New.Pages.lms import Dashbaord_LMS
+
+
+###############################################################################################
+
 import re
 from selenium.webdriver.chrome.service import Service
-
-import Automation.Beelinks_New.Pages.login
+from selenium.webdriver.chrome.options import Options
 
 class HOV(unittest.TestCase):
-    import Automation.Beelinks_New.Pages.login
+
 
     @classmethod
     def setUpClass(cls):
+        cls.option1=Options()
+        cls.option1.add_argument("--disable-notifications")
         cls.driver=webdriver.Chrome(ChromeDriverManager().install())
         cls.driver.implicitly_wait(30)
         cls.driver.get("https://new.beelinks.solutions/login")
@@ -41,51 +49,67 @@ class HOV(unittest.TestCase):
 
 
 
-
-    def test_a_login(self):
-        driver=self.driver
-        self.driver.implicitly_wait(10)
-        lg=llogin(driver)
-        lg.invalid_login()
-
-        # o=self.assertEqual("Email must be a valid email address",lg.vm)
-        # print(o)
-
-
-
-
-
-
-
-
-
-
-    # def test_a_hhh(self):
-    #     s=self.driver.find_element_by_xpath("/html/body/app-root/app-login/div/div/div/div/div[1]/div[2]/div[2]/form/div[1]/input")
-    #     print(s)
-    #     self.driver.implicitly_wait(20)
-    #     driver=self.driver
-    #     hov1=dshb(driver)
-    #     hov1.hovering()
-    #     time.sleep(10)
-
-    # def test_b_finl(self):
-    #     driver=self.driver
-    #     self.driver.implicitly_wait(20)
-    #     dd=Dnld(driver)
-    #     dd.file()
-    #     time.sleep(20)
     #
-    # def test_c_scc(self):
-    #     self.driver.implicitly_wait(20)
+    # def test_a_login(self):
     #     driver=self.driver
-    #     sdc=scroll(driver)
-    #     sdc.sc()
-    #     time.sleep(5)
+    #     self.driver.implicitly_wait(10)
+    #     lg=llogin(driver)
+    #     lg.invalid_login() ## first method for login test
+    #
+    #     ##s second method for forgot password
+    #     lg.forgot_passwords()
+    #     time.sleep(2)
+    #
+    #
+    def test_b_createagent(self):
+        driver=self.driver
+        self.driver.implicitly_wait(20)
+        cra=Createagent(driver)
+        cra.createagent_method()
+
+        time.sleep(2)
+
+    def test_c_create_ticket(self):
+        self.driver.implicitly_wait(30)
+        driver=self.driver
+        ct=create_tickets(driver)
+        ct.create_tickets_manual()
+        time.sleep(5)
+
+
+
+
+
+
+
+    # def test_c_lmscmd(self):
+    #     self.driver.implicitly_wait(30)
+    #     driver=self.driver
+    #     dlms=Dashbaord_LMS(driver)
+    #     dlms.LMS_method()
+    #
+    #     self.assertEqual(dlms.lmshead_v, "LIVE MONITORING SYSTEM","Lms Heading verified") #heading verification
+    #     self.assertEqual(dlms.onlineag_v, "Online Agents","Online agents heading verified")
+    #     self.assertEqual(dlms.active_v, "Active Agents","Active agents heading verified")
+    #     self.assertEqual(dlms.agents_on_break_V, "Agents on Break","Agents on breaks heading verified")
+    #     self.assertEqual(dlms.agent_chatting_V, "Agents Chatting","agents chatting heading verified")
+    #     self.assertEqual(dlms.agent_not_chatting_V, "Agents Not Chatting","agents not chatting verified")
+    #     self.assertEqual(dlms.total_chats_V, "Total Chats","total chats heading verified")
+    #     self.assertEqual(dlms.average_speed_V, "Average Speed of Answer","average speed of answer heading verified")
+    #     self.assertEqual(dlms.occupancy_v, "Occupancy","occupancy heading verified")
+    #     self.assertEqual(dlms.visitors_text_v, "Visitors","Visitors heading verified")
+    #
+    #     self.driver.execute_script("window.scrollTo(0,500)")
+    #     self.assertEqual(dlms.agent_list_v, "Agent List", "Agent list verified")
+    #
+    #     t=self.driver.current_url
+    #     self.assertEqual(t,"https://new.beelinks.solutions/dashboards/lms","url matched")
         
     # @classmethod
     # def tearDownClass(cls):
     #     cls.driver.close()
+
+
         
         
         
