@@ -49,25 +49,42 @@ class HOV(unittest.TestCase):
 
 
 
-    #
-    # def test_a_login(self):
-    #     driver=self.driver
-    #     self.driver.implicitly_wait(10)
-    #     lg=llogin(driver)
-    #     lg.invalid_login() ## first method for login test
-    #
-    #     ##s second method for forgot password
-    #     lg.forgot_passwords()
-    #     time.sleep(2)
-    #
-    #
+
+    def test_a_login(self):
+        driver=self.driver
+        self.driver.implicitly_wait(10)
+        lg=llogin(driver)
+        lg.invalid_login() ## first method for login test
+
+        ##s second method for forgot password
+        lg.forgot_passwords()
+        time.sleep(2)
+        self.driver.back()
+        self.driver.find_element_by_xpath("/html/body/app-root/app-login/div/div/div/div/div[1]/div[2]/div[2]/form/div[1]/input").send_keys("qa.bizzchats@gmail.com")
+        self.driver.find_element_by_xpath("/html/body/app-root/app-login/div/div/div/div/div[1]/div[2]/div[2]/form/div[2]/div/input").send_keys("12345678")
+        self.driver.find_element_by_xpath("/html/body/app-root/app-login/div/div/div/div/div[1]/div[2]/div[2]/form/div[3]/button").click()
+
+
     def test_b_createagent(self):
         driver=self.driver
         self.driver.implicitly_wait(20)
         cra=Createagent(driver)
-        cra.createagent_method()
+        cra.createagent_method() ######### first method
 
         time.sleep(2)
+        # self.driver.refresh()
+        cra.ageentstab() ########## second method
+        time.sleep(2)
+
+        agentsname = self.driver.find_element_by_xpath("/html/body/app-root/app-layout/div/div/div/app-agents/div/div/div[1]/div/div[3]/app-agent-list-sidebar/div[2]/ul/li/div/div/div[3]/h5").text
+
+        self.assertEqual(agentsname, cra.nickname)
+        print("agent has been created and appeared in the list as well")
+        time.sleep(2)
+        cra.edit_profile() ##third method
+        time.sleep(4)
+
+
 
     def test_c_create_ticket(self):
         self.driver.implicitly_wait(30)
@@ -82,28 +99,29 @@ class HOV(unittest.TestCase):
 
 
 
-    # def test_c_lmscmd(self):
-    #     self.driver.implicitly_wait(30)
-    #     driver=self.driver
-    #     dlms=Dashbaord_LMS(driver)
-    #     dlms.LMS_method()
-    #
-    #     self.assertEqual(dlms.lmshead_v, "LIVE MONITORING SYSTEM","Lms Heading verified") #heading verification
-    #     self.assertEqual(dlms.onlineag_v, "Online Agents","Online agents heading verified")
-    #     self.assertEqual(dlms.active_v, "Active Agents","Active agents heading verified")
-    #     self.assertEqual(dlms.agents_on_break_V, "Agents on Break","Agents on breaks heading verified")
-    #     self.assertEqual(dlms.agent_chatting_V, "Agents Chatting","agents chatting heading verified")
-    #     self.assertEqual(dlms.agent_not_chatting_V, "Agents Not Chatting","agents not chatting verified")
-    #     self.assertEqual(dlms.total_chats_V, "Total Chats","total chats heading verified")
-    #     self.assertEqual(dlms.average_speed_V, "Average Speed of Answer","average speed of answer heading verified")
-    #     self.assertEqual(dlms.occupancy_v, "Occupancy","occupancy heading verified")
-    #     self.assertEqual(dlms.visitors_text_v, "Visitors","Visitors heading verified")
-    #
-    #     self.driver.execute_script("window.scrollTo(0,500)")
-    #     self.assertEqual(dlms.agent_list_v, "Agent List", "Agent list verified")
-    #
-    #     t=self.driver.current_url
-    #     self.assertEqual(t,"https://new.beelinks.solutions/dashboards/lms","url matched")
+
+    def test_d_lmscmd(self):
+        self.driver.implicitly_wait(30)
+        driver=self.driver
+        dlms=Dashbaord_LMS(driver)
+        dlms.LMS_method()
+
+        self.assertEqual(dlms.lmshead_v, "LIVE MONITORING SYSTEM","Lms Heading verified") #heading verification
+        self.assertEqual(dlms.onlineag_v, "Online Agents","Online agents heading verified")
+        self.assertEqual(dlms.active_v, "Active Agents","Active agents heading verified")
+        self.assertEqual(dlms.agents_on_break_V, "Agents on Break","Agents on breaks heading verified")
+        self.assertEqual(dlms.agent_chatting_V, "Agents Chatting","agents chatting heading verified")
+        self.assertEqual(dlms.agent_not_chatting_V, "Agents Not Chatting","agents not chatting verified")
+        self.assertEqual(dlms.total_chats_V, "Total Chats","total chats heading verified")
+        self.assertEqual(dlms.average_speed_V, "Average Speed of Answer","average speed of answer heading verified")
+        self.assertEqual(dlms.occupancy_v, "Occupancy","occupancy heading verified")
+        self.assertEqual(dlms.visitors_text_v, "Visitors","Visitors heading verified")
+
+        self.driver.execute_script("window.scrollTo(0,500)")
+        self.assertEqual(dlms.agent_list_v, "Agent List", "Agent list verified")
+
+        t=self.driver.current_url
+        self.assertEqual(t,"https://new.beelinks.solutions/dashboards/lms","url matched")
         
     # @classmethod
     # def tearDownClass(cls):

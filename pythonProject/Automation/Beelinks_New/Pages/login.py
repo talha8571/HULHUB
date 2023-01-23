@@ -70,6 +70,7 @@ class llogin():
     def forgot_passwords(self):
         self.driver.implicitly_wait(10)
         self.logout_fucntion() ## to logout again from the system
+        time.sleep(2)
         self.driver.execute_script("window.scrollTo(0,500)")
         time.sleep(2)
         self.driver.find_element_by_xpath(self.forgot_password_link).click()#click on the forgot password link
