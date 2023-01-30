@@ -38,9 +38,9 @@ class create_tickets():
 
 
         time.sleep(2)
-        fe(self.agent).send_keys("qa.bizzchats@gmail.com")
+        fe(self.agent).send_keys("qa.bizzchats@gmail.com",Keys.ENTER)
         time.sleep(1)
-        fe(self.watchers).send_keys("talhahhulhub@gmail.com")#selection watchers
+        fe(self.watchers).send_keys("talhahhulhub@gmail.com",Keys.ENTER)#selection watchers
         time.sleep(1)
         fe(self.visitors_name).send_keys("Automation")#visiitors name
         fe(self.visiors_email).send_keys("Automation",str(random_number)+"@gmail.com") #visitors email
@@ -52,4 +52,4 @@ class create_tickets():
         fe(self.message).send_keys(Keys.CONTROL, 'a')
         fe(self.message).send_keys(Keys.DELETE)
         fe(self.message).send_keys("This message is from automation script ")
-        # fe(self.submit_button).click()
+        fe(self.submit_button).click()

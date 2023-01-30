@@ -3,6 +3,11 @@ import time
 
 from selenium.webdriver.common.keys import Keys
 
+
+
+
+#########  THIS FILE EXITS THE CREATION FO AGENT, SEARCH AGENT IN THE LIST OF AGENT THEN UPDATE THE PROFILE, EDIT ROLE AND  UPDATE PASSWORD AND VERIFY THE ERROR MESSAGES
+
 class Createagent():
     def __init__(self, driver):
         self.driver=driver
@@ -61,9 +66,43 @@ class Createagent():
 
 
         self.edit_role_icon="/html/body/app-root/app-layout/div/div/div/app-agents/div/div/div[2]/div/div/div/div/div/div[1]/div/div/div/div[2]/div/div[1]/ul/li[2]"
-        self.assignrole_edit_role="/html/body/div[2]/div[2]/div/mat-dialog-container/app-edit-role-dialog/div/div/div[1]/div/ng-select/div/div/div[3]/input"
+        self.assignrole_textfield_edit_role="/html/body/div[2]/div[2]/div/mat-dialog-container/app-edit-role-dialog/div/div/div[1]/div/ng-select/div/div/div[3]/input"
         self.asign_role_save_button="/html/body/div[2]/div[2]/div/mat-dialog-container/app-edit-role-dialog/div/div/div[2]/mat-dialog-actions/button[1]"
+        self.confirmation_ok="/html/body/ngb-modal-window/div/div/app-confirmation/div[3]/button[1]"
 
+
+
+        ###############################################################################
+
+        ########################   Edit password X PATH    ############################
+
+        ###############################################################################
+
+        self.edit_password_agent_profile="/html/body/app-root/app-layout/div/div/div/app-agents/div/div/div[2]/div/div/div/div/div/div[1]/div/div/div/div[2]/div/div[1]/ul/li[3]"
+        self.newpassword_textfield="/html/body/div[2]/div[2]/div/mat-dialog-container/app-change-password-dialog/div[2]/form/div[1]/input"
+        self.view_iconof_new_password="/html/body/div[2]/div[2]/div/mat-dialog-container/app-change-password-dialog/div[2]/form/div[1]/span/div/i"
+        self.confirm_password_textfield="/html/body/div[2]/div[2]/div/mat-dialog-container/app-change-password-dialog/div[2]/form/div[3]/input"
+        self.view_icon_of_confirmpassword="/html/body/div[2]/div[2]/div/mat-dialog-container/app-change-password-dialog/div[2]/form/div[1]/span/div/i"
+        self.submit_button_of_password_popup="/html/body/div[2]/div[2]/div/mat-dialog-container/app-change-password-dialog/div[3]/mat-dialog-actions/button[1]"
+        self.error_message_of_same_password="/html/body/div[2]/div[2]/div/mat-dialog-container/app-change-password-dialog/div[2]/form/div[4]/small"
+        self.error_message_of_first_field="/html/body/div[2]/div[2]/div/mat-dialog-container/app-change-password-dialog/div[2]/form/div[2]/small"
+        self.error_message_of_second_field="/html/body/div[2]/div[2]/div/mat-dialog-container/app-change-password-dialog/div[2]/form/div[4]/small"
+        self.ok_button_of_confirmation="/html/body/ngb-modal-window/div/div/app-confirmation/div[3]/button[1]" #ok button after changing password
+
+
+
+        ########################################################################
+
+        ############################ NOTIFICATIONS ############################
+
+        ######################################################################
+
+
+        self.firstsearchresult="/html/body/app-root/app-layout/div/div/div/app-agents/div/div/div[1]/div/div[3]/app-agent-list-sidebar/div[2]/ul/li[1]/div/div/div[3]/h5"
+        self.notifications_tab="/html/body/app-root/app-layout/div/div/div/app-agents/div/div/div[2]/div/div/div/div/div/ul/li[2]/a/span"
+
+        ######## Email notification ###########
+        self.new_ticket_created="/html/body/app-root/app-layout/div/div/div/app-agents/div/div/div[2]/div/div/div/div/div/div[1]/div/div[1]/form/div[1]/div/div/div/input"
 
 
 
@@ -75,8 +114,8 @@ class Createagent():
 
     def createagent_method(self):
         self.driver.implicitly_wait(30)
-        random_number=random.randint(0,99999)
-        fe=self.driver.find_element_by_xpath #stroing driver.find element in variable to use next time
+        random_number=random.randint(0,999999999)
+        fe=self.driver.find_element_by_xpath #storing driver.find element in variable to use next time
         fe(self.plussign_xpath).click()
         fe(self.createagent_xpaht).click()
         fe(self.firstname_Xpath).send_keys("test") #name
@@ -103,6 +142,8 @@ class Createagent():
         fe(self.submit_button).click()
 
         time.sleep(10)
+        print("new agent registered  with the name",self.nickname)
+        #agent created
 
     def ageentstab(self):
 
@@ -117,16 +158,19 @@ class Createagent():
         fe(self.offline_xpath).click()
         time.sleep(1)
         fe(self.allagents).click()
+        time.sleep(2)
+        fe(self.allagents_Searchbar).send_keys(self.nickname)  # search the name of the created agent
 
 
 
     def edit_profile(self):
         self.driver.implicitly_wait(20)
         fe=self.driver.find_element_by_xpath
-        fe(self.allagents_Searchbar).send_keys(self.nickname) #search the name of the created agent
         time.sleep(1)
-        fe(self.agentsname_fromsearch).click()
-        fe(self.edit_profile_icon).click()
+        fe(self.agentsname_fromsearch).click() #click ont he agents name
+        fe(self.edit_profile_icon).click() #click on edit profile
+
+        ##edit the form of agent
         fe(self.firstname_editprofile).send_keys("_updated")
         fe(self.nickname_editprofile).send_keys("_updated")
         fe(self.manager_editprofiel).send_keys("qa.bizzchats@gmail.com",Keys.ENTER)
@@ -136,7 +180,7 @@ class Createagent():
             fe("/html/body/div[2]/div[2]/div/mat-dialog-container/app-edit-profile-dialog/div/form/div[1]/div[4]/div[1]/ng-select/ng-dropdown-panel/div/div[2]/div/span").click()
 
         else:
-            print("nam not found")
+            print("name of  manager  not found")
 
 
 
@@ -170,9 +214,82 @@ class Createagent():
 
     def edit_role(self):
 
-        self.driver.find_element_by_xpath
+        fe=self.driver.find_element_by_xpath
+        fe(self.edit_role_icon).click()
+
+        role=["admin","supervisor","agent","Whatsapp agent", "Sales Person"]
+
+        rd=random.randint(0,4)
+
+        self.role_agent=role[rd]
+        fe(self.assignrole_textfield_edit_role).send_keys(self.role_agent, Keys.ENTER)#select role
+        fe(self.asign_role_save_button).click()
+        fe(self.confirmation_ok).click()
+
+        # self.role_of_agent_in_tag=fe("/html/body/app-root/app-layout/div/div/div/app-agents/div/div/div[2]/div/div/div/div/div/div[1]/div/div/div/div[1]/ul/li[2]/p").text
+        print("role updated")
+        time.sleep(2)
 
 
+    def edit_password(self):
+
+        fe=self.driver.find_element_by_xpath
+        fe(self.edit_password_agent_profile).click()
+        fe(self.newpassword_textfield).send_keys("1234")
+        fe(self.confirm_password_textfield).send_keys("1234")
+
+        first_field_password_length_message=fe(self.error_message_of_first_field).text #capturing the error messgae of first field
+        print(first_field_password_length_message)
+
+        second_field_error_message=fe(self.error_message_of_second_field).text
+        print(second_field_error_message)
+
+        #condition of erroe messages
+
+        if first_field_password_length_message == "New Password cannot be less than 8 characters" and second_field_error_message == "Confirm Password cannot be less than 8 characters":
+            fe(self.newpassword_textfield).send_keys("5678")
+            fe(self.confirm_password_textfield).send_keys("7896")
+
+            #capturing messgae of
+            second_field_error_message = fe(self.error_message_of_second_field).text
+            print(second_field_error_message)
+
+
+            if second_field_error_message == "New Password & Confirm Password must be same":
+                fe(self.newpassword_textfield).clear()
+                fe(self.newpassword_textfield).send_keys("12345678")
+                fe(self.confirm_password_textfield).clear()
+                fe(self.confirm_password_textfield).send_keys("12345678")
+
+            else:
+                print("thanks")
+
+
+        else:
+            print("both messages are different")
+
+
+        fe(self.submit_button_of_password_popup).click() #submit button of popup window
+        fe(self.ok_button_of_confirmation).click() #ok button of popup window
+
+
+
+    def profile_notifications(self):
+        no=random.randint(0,9)
+        self.driver.implicitly_wait(20)
+        fe=self.driver.find_element_by_xpath
+        time.sleep(2)
+        fe(self.agentstab_leftpanel).click() #click agent tab from left panel
+        time.sleep(2)
+        fe(self.allagents_Searchbar).clear()#3clear the search bar
+        fe(self.allagents_Searchbar).send_keys("Automation",no)  # search the name of the created agent
+        time.sleep(2)
+        fe(self.firstsearchresult).click()
+        time.sleep(2)
+        fe(self.notifications_tab).click()
+        time.sleep(2)
+        t=fe(self.new_ticket_created).is_selected()
+        p=print(t)
 
 
 
