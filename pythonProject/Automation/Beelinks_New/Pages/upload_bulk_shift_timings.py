@@ -1,9 +1,13 @@
 class shift_timings():
+
+
+    ###################### This will upload the shift timings #########################
+
     def __init__(self, driver):
         self.driver=driver
         self.huluhb_icon = "/html/body/app-root/app-layout/div/app-topbar/header/div/div[1]/div/a[2]/span[1]/img"  # hulub icon click to land on dasboard
         self.agentstab = "/html/body/app-root/app-layout/div/app-sidebar/div/div/div/div/ul/li[8]/a"  # agents tab from left panel
-        self.arrow_icon_upload_files="/html/body/app-root/app-layout/div/div/div/app-agents/div/div/div[1]/div/div[1]/div[1]/div/div[1]/button" # arrow icon
+        self.arrow_icon_upload_files="/html/body/app-root/app-layout/div/div/div/app-agents/div/div/div[1]/div/div[1]/div[1]/div/div/button" # arrow icon
         self.upload_bulk_shift_timings_text="/html/body/app-root/app-layout/div/div/div/app-agents/div/div/div[1]/div/div[1]/div[1]/div/div[2]/a[1]" #
         self.download_sample_file_button="/html/body/div[2]/div[2]/div/mat-dialog-container/app-update-shift-timing-dialog/div[2]/a/span"
         self.choose_file_field="/html/body/div[2]/div[2]/div/mat-dialog-container/app-update-shift-timing-dialog/div[2]/form/div/input"
@@ -12,9 +16,11 @@ class shift_timings():
 
 
     def upload_shift_timings_method(self):
+        self.driver.implicitly_wait(10)
         fe=self.driver.find_element_by_xpath
         fe(self.huluhb_icon).click()
         fe(self.agentstab).click()
+        fe("/html/body/app-root/app-layout/div/div/div/app-agents/div/div/div[1]/div/div[3]/ul/li[1]/a").click()##agents tab from list
         fe(self.arrow_icon_upload_files).click()
         fe(self.upload_bulk_shift_timings_text).click()
         fe(self.download_sample_file_button).click() #download buton of sample file

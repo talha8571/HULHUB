@@ -270,6 +270,7 @@ class Createagent():
 
 
         fe(self.submit_button_of_password_popup).click() #submit button of popup window
+        time.sleep(2)
         fe(self.ok_button_of_confirmation).click() #ok button of popup window
 
 

@@ -25,6 +25,8 @@ from Automation.Beelinks_New.Pages.new_conversations import nEW_COnversations
 from Automation.Beelinks_New.Pages.new_group import new_group
 from Automation.Beelinks_New.Pages.upload_bulk_shift_timings import shift_timings
 from Automation.Beelinks_New.Pages.upload_bulk_supervisor import bulk_supervisor
+from Automation.Beelinks_New.Pages.marketing import marketing_tab
+
 
 from Automation.Beelinks_New.Pages.lms import Dashbaord_LMS
 
@@ -47,7 +49,7 @@ class HOV(unittest.TestCase):
         cls.driver.get("https://new.beelinks.solutions/login")
         # a = cls.driver.find_element_by_xpath
         cls.driver.maximize_window()
-        cls.driver.find_element_by_xpath("/html/body/app-root/app-login/div/div/div/div/div[1]/div[2]/div[2]/form/div[1]/input").send_keys("qa.bizzchats@gmail.com")
+        cls.driver.find_element_by_xpath("/html/body/app-root/app-login/div/div/div/div/div[1]/div[2]/div[2]/form/div[1]/input").send_keys("talhahhulhub@gmail.com")
         cls.driver.find_element_by_xpath("/html/body/app-root/app-login/div/div/div/div/div[1]/div[2]/div[2]/form/div[2]/div/input").send_keys("12345678")
         cls.driver.find_element_by_xpath("/html/body/app-root/app-login/div/div/div/div/div[1]/div[2]/div[2]/form/div[3]/button").click()
 
@@ -105,7 +107,7 @@ class HOV(unittest.TestCase):
     def test_c_agent_notification(self):
         self.driver.implicitly_wait(20)
         driver=self.driver
-        noti=Createagent(driver)
+        noti=Createagent(driver)##class name
         noti.profile_notifications()
 
         email_notification_heading=self.driver.find_element_by_xpath("/html/body/app-root/app-layout/div/div/div/app-agents/div/div/div[2]/div/div/div/div/div/div[1]/div/div[1]/h4").text
@@ -134,7 +136,7 @@ class HOV(unittest.TestCase):
         ng=new_group(driver)
         ng.create_new_group()
 
-    def test_upload_bulkshift(self):
+    def test_f_upload_bulkshift(self):
 
         driver=self.driver
         driver.implicitly_wait(20)
@@ -142,12 +144,23 @@ class HOV(unittest.TestCase):
         us.upload_shift_timings_method()
         time.sleep(10)
 
-    def test_upload_supervisor(self):
+    def test_g_upload_supervisor(self):
         driver=self.driver
         self.driver.implicitly_wait(20)
         us=bulk_supervisor(driver)
         us.bulk_supervisor() ###calling mtheod from file
         time.sleep(2)
+
+    def test_h_marketing(self):
+        driver=self.driver
+        driver.implicitly_wait(30)
+        mk=marketing_tab(driver)
+        mk.create_contact_list() ##function of create contact list
+        time.sleep(2)
+        mk.campaign_creation()#function of campaign creation
+        time.sleep(2)
+        mk.campaign_execution()
+
 
 
 
@@ -168,7 +181,7 @@ class HOV(unittest.TestCase):
 
 
 
-    def test_e_lmscmd(self):
+    def test_i_lmscmd(self):
         self.driver.implicitly_wait(30)
         driver=self.driver
         dlms=Dashbaord_LMS(driver)

@@ -4,7 +4,7 @@ from selenium.webdriver.common.keys import Keys
 import colorama
 from colorama import Fore
 
-
+ ########################  This will create new group for agents chats ############
 class new_group():
 
     def __init__(self, driver):
@@ -24,13 +24,15 @@ class new_group():
 
     def create_new_group(self):
         fe=self.driver.find_element_by_xpath
+        time.sleep(2)
         fe(self.huluhb_icon).click()
         fe(self.agentstab).click()
+        fe("/html/body/app-root/app-layout/div/div/div/app-agents/div/div/div[1]/div/div[3]/ul/li[1]/a").click()#click on agents tab from panel
         fe(self.conversation_icon_to_open_option).click()
         fe(self.create_new_group_text).click()
 
         rad=random.randint(0,3147896523684)
-        group_name="Autoamtion"+str(rad)
+        group_name="Automation"+str(rad)
         fe(self.group_name_field).send_keys(group_name)
         fe(self.next_button).click()
 
@@ -58,7 +60,7 @@ class new_group():
             time.sleep(5)
             # fe("/html/body/app-root/app-layout/div/div/div/app-agents/div/div/div[2]/div/div[1]/app-agents-chat/div/div[2]/div/div[2]/div/div[1]/div/input").click()
             time.sleep(1)
-            fe("/html/body/app-root/app-layout/div/div/div/app-agents/div/div/div[2]/div/div[1]/app-agents-chat/div/div[2]/div/div[2]/div/div[1]/div/input").send_keys("this message is from automaion script in the group")  ##sending message
+            fe("/html/body/app-root/app-layout/div/div/div/app-agents/div/div/div[2]/div/div[1]/app-agents-chat/div/div[2]/div/div[2]/div/div[1]/div/input").send_keys("this message is from automation script in the group")  ##sending message
 
             time.sleep(2)
             fe("/html/body/app-root/app-layout/div/div/div/app-agents/div/div/div[2]/div/div[1]/app-agents-chat/div/div[2]/div/div[2]/div/div[2]/button").click()

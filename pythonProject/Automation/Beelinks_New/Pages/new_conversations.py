@@ -3,7 +3,7 @@ import time
 from selenium.webdriver.common.keys import Keys
 
 
-
+  ############ this will create new conversation on agents################################
 class nEW_COnversations():
 
     def __init__(self, driver):
@@ -67,15 +67,17 @@ class nEW_COnversations():
             time.sleep(2)
             fe("/html/body/app-root/app-layout/div/div/div/app-agents/div/div/div[1]/div/div[3]/app-agent-conv-list-sidebar/div/div[2]/ul/li[1]/a/div/div/div[2]/div/div[2]").click() #click on the agent after searching
             self.driver.execute_script("window.scrollTo(0,600)")
-            fe(self.enter_message_field).send_keys("this message is from automaion script",Keys.ENTER) ##sending message
+            fe(self.enter_message_field).send_keys("this message is from automation script",Keys.ENTER) ##sending message
             print("new conversation has been created and message has been send")
 
         elif email1== email2:
             self.driver.execute_script("window.scrollTo(0,600)")
-            fe(self.enter_message_field).send_keys("this message is from automaion script",Keys.ENTER)  ##sending message
+            fe(self.enter_message_field).send_keys("this message is from automation script",Keys.ENTER)  ##sending message
             print("new conversation has been created and message has been send")
 
 
 
         else:
             print("ERROR emails of selected and agent appeared in the list are different")
+            fe(self.enter_message_field).send_keys("this message is from automation script",Keys.ENTER) ##sending message
+
