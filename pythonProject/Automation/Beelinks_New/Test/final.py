@@ -25,6 +25,8 @@ from Automation.Beelinks_New.Pages.new_conversations import nEW_COnversations
 from Automation.Beelinks_New.Pages.new_group import new_group
 from Automation.Beelinks_New.Pages.upload_bulk_shift_timings import shift_timings
 from Automation.Beelinks_New.Pages.upload_bulk_supervisor import bulk_supervisor
+from Automation.Beelinks_New.Pages.visitors import visitors_class
+
 from Automation.Beelinks_New.Pages.marketing import marketing_tab
 
 
@@ -151,6 +153,17 @@ class HOV(unittest.TestCase):
         us.bulk_supervisor() ###calling mtheod from file
         time.sleep(2)
 
+
+    def test_g_viistors(self):
+        driver=self.driver
+        self.driver.implicitly_wait(20)
+        vst=visitors_class(driver)
+        vst.visitors_method()
+
+
+
+
+
     def test_h_marketing(self):
         driver=self.driver
         driver.implicitly_wait(30)
@@ -160,6 +173,8 @@ class HOV(unittest.TestCase):
         mk.campaign_creation()#function of campaign creation
         time.sleep(2)
         mk.campaign_execution()
+
+
 
 
 
