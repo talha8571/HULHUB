@@ -66,7 +66,6 @@ class llogin():
 
 
 
-
     def forgot_passwords(self):
         self.driver.implicitly_wait(10)
         self.logout_fucntion() ## to logout again from the system

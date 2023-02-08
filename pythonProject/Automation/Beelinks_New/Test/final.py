@@ -1,42 +1,33 @@
-from selenium import webdriver
-from selenium import webdriver
-import time
-import string
 import unittest
 from selenium import webdriver
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 import time
-from selenium.webdriver.support.select import Select
-from selenium.webdriver import ActionChains
 #from webdriver_manager.chrome import ChromeDriverManager
 import HtmlTestRunner
 from webdriver_manager.chrome import ChromeDriverManager
-import random
-import string
 from seleniumwire import webdriver
+from selenium.webdriver.common.keys import Keys
+
 
 ################### import of classes from different pages #####################################
 
 from Automation.Beelinks_New.Pages.login import llogin
-from Automation.Beelinks_New.Pages.createagent import Createagent
-from Automation.Beelinks_New.Pages.create_ticket import create_tickets
-from Automation.Beelinks_New.Pages.new_conversations import nEW_COnversations
-from Automation.Beelinks_New.Pages.new_group import new_group
-from Automation.Beelinks_New.Pages.upload_bulk_shift_timings import shift_timings
-from Automation.Beelinks_New.Pages.upload_bulk_supervisor import bulk_supervisor
+from Automation.Beelinks_New.Pages.Agents.createagent import Createagent
+from Automation.Beelinks_New.Pages.Agents.new_conversations import nEW_COnversations
+from Automation.Beelinks_New.Pages.Agents.new_group import new_group
+from Automation.Beelinks_New.Pages.Agents.upload_bulk_shift_timings import shift_timings
+from Automation.Beelinks_New.Pages.Agents.upload_bulk_supervisor import bulk_supervisor
 from Automation.Beelinks_New.Pages.visitors import visitors_class
 
 from Automation.Beelinks_New.Pages.marketing import marketing_tab
-
-
+from Automation.Beelinks_New.Pages.Settings.automatedresponse import automaticresponse
+from Automation.Beelinks_New.Pages.Settings.signature_gs import signature_General_settings
+from Automation.Beelinks_New.Pages.Settings.group_management import group_management_class
+from Automation.Beelinks_New.Pages.Settings.keyboardshortcuts import Keyboard_shortcuts
 from Automation.Beelinks_New.Pages.lms import Dashbaord_LMS
 
 
 ###############################################################################################
 
-import re
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 
 class HOV(unittest.TestCase):
@@ -173,6 +164,38 @@ class HOV(unittest.TestCase):
         mk.campaign_creation()#function of campaign creation
         time.sleep(2)
         mk.campaign_execution()
+
+
+    def test_i_automatedresponse(self):
+        driver=self.driver
+        self.driver.implicitly_wait(20)
+        aut=automaticresponse(driver)
+        aut.response_method()
+        time.sleep(2)
+
+    def test_j_signature(self):
+
+        driver=self.driver
+        self.driver.implicitly_wait(30)
+        sg=signature_General_settings(driver)
+        sg.signature_method()
+        time.sleep(2)
+
+
+    def test_k_keyboardshortcuts(self):
+        driver=self.driver
+        self.driver.implicitly_wait(20)
+        ks=Keyboard_shortcuts(driver)
+        ks.shortcuts_Page()
+        url=self.driver.current_url
+        self.assertEqual(url,"https://new.beelinks.solutions/settings/general/keyboard-shortcuts")
+
+    def test_l_group_management_settings(self):
+        driver=self.driver
+        self.driver.implicitly_wait(20)
+        gps=group_management_class(driver)
+        gps.add_group_in_settings()
+
 
 
 
