@@ -6,7 +6,9 @@ import HtmlTestRunner
 from webdriver_manager.chrome import ChromeDriverManager
 from seleniumwire import webdriver
 from selenium.webdriver.common.keys import Keys
-
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 ################### import of classes from different pages #####################################
 
@@ -196,8 +198,10 @@ class HOV(unittest.TestCase):
         gps=group_management_class(driver)
         gps.add_group_in_settings()
 
-
-
+        x=self.driver.find_element_by_xpath("/html/body/app-root/app-layout/div/div/div/app-group-management/div/div/div[2]/div/div/div[3]/div/div/div/div").is_displayed()
+        print(x)
+        if x:
+            print("Agent has been unassigned")
 
 
 

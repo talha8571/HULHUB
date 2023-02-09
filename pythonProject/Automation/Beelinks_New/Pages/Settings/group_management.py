@@ -1,7 +1,10 @@
 import random
 import time
 from selenium.webdriver.common.keys import Keys
-
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 class group_management_class():
     def __init__(self,driver):
@@ -27,6 +30,7 @@ class group_management_class():
 
 
     def add_group_in_settings(self):
+        self.driver.implicitly_wait(20)
         fe = self.driver.find_element_by_xpath
 
         fe(self.huluhb_icon).click()
@@ -49,6 +53,73 @@ class group_management_class():
         ##add agent in the group
 
         fe(self.add_agent_in_group_button).click()
-        fe(self.select_agent_search_bar).send_keys("talhah@mailinator.com", Keys.ENTER, "akhan9424@sbtjapan.com",Keys.ENTER)
+
+        fe(self.select_agent_search_bar).click()
+        fe(self.select_agent_search_bar).send_keys("talhah@mailinator.com")
+
+        element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.XPATH, "/html/body/app-root/app-layout/div/div/div/app-group-management/div/div/div[2]/div/div/div[1]/div/div/div[2]/div/div[1]/div/form/div/div/ng-select/ng-dropdown-panel/div/div[2]/div[1]/span")))
+        fe(self.select_agent_search_bar).send_keys(Keys.ENTER)
+
+
+
+        # fe(self.select_agent_search_bar).send_keys("talhah@mailinator.com",Keys.ENTER)
+        # time.sleep(3)
+        # fe(self.select_agent_search_bar).send_keys(Keys.ENTER)
+        # email1=fe("/html/body/app-root/app-layout/div/div/div/app-group-management/div/div/div[2]/div/div/div[1]/div/div/div[2]/div/div[1]/div/form/div/div/ng-select/ng-dropdown-panel/div/div[2]/div[1]/span").text
+        #
+        # if email1=="talhah@mailinator.com":
+        #     time.sleep(1)
+        #     fe("/html/body/app-root/app-layout/div/div/div/app-group-management/div/div/div[2]/div/div/div[1]/div/div/div[2]/div/div[1]/div/form/div/div/ng-select/ng-dropdown-panel/div/div[2]/div/span").click()
+        #
+        # else:
+        #     time.sleep(5)
+        #     fe("/html/body/app-root/app-layout/div/div/div/app-group-management/div/div/div[2]/div/div/div[1]/div/div/div[2]/div/div[1]/div/form/div/div/ng-select/ng-dropdown-panel/div/div[2]/div/span").click()
+
+        # # while True:
+        # email2 = fe("/html/body/app-root/app-layout/div/div/div/app-group-management/div/div/div[2]/div/div/div[1]/div/div/div[2]/div/div[1]/div/form/div/div/ng-select/ng-dropdown-panel/div/div[2]/div[1]/span").text
+        #     if email1==email2:
+        #         time.sleep(2)
+        #         fe("/html/body/app-root/app-layout/div/div/div/app-group-management/div/div/div[2]/div/div/div[1]/div/div/div[2]/div/div[1]/div/form/div/div/ng-select/ng-dropdown-panel/div/div[2]/div[1]").click()
+        #         break
+
+        # fe("/html/body/app-root/app-layout/div/div/div/app-group-management/div/div/div[2]/div/div/div[1]/div/div/div[2]/div/div[1]/div/form/div/div/ng-select/ng-dropdown-panel/div/div[2]/div/span").click()
+
+
+        fe(self.assign_agent_button_after_selection).click()
+        time.sleep(3)
+        print("agent has been added in the group")
+
+        fe("/html/body/app-root/app-layout/div/div/div/app-group-management/div/div/div[2]/div/div/div[1]/div/div/div[2]/div/div[3]/div/input").send_keys("talhah@mailinator.com")#3searching added agent int he group list
+        searched_result=fe("/html/body/app-root/app-layout/div/div/div/app-group-management/div/div/div[2]/div/div/div[3]/div/div/table/tbody/tr/td[2]/span").text #after searching capturing the text of the agent
+        print(searched_result)
+
+        if searched_result=="talhah@mailinator.com":
+            print("agent added and appeared in the list")
+            time.sleep(1)
+            fe("/html/body/app-root/app-layout/div/div/div/app-group-management/div/div/div[2]/div/div/div[1]/div/div/div[2]/div/div[3]/div/input").clear() #clearing agent in the group list
+
+        time.sleep(1)
+        fe(self.all_check_box).click()
+        time.sleep(2)
+        fe(self.unassigned_agents).click()
+        print("agents unassigned")
+        time.sleep(1)
+        fe(self.ok_button_of_confirmationbox).click()
+        time.sleep(5)
+
+        # # while True:
+        # #     ncr=fe("/html/body/app-root/app-layout/div/div/div/app-group-management/div/div/div[2]/div/div/div[3]/div/div/div/div/h4").text
+        # #     if ncr.is_displayed:
+        # #         print("done")
+        # #         break
+        #
+        # self.driver.refresh()
+        # fe(self.search_bar_of_group).send_keys(group_name)
+        # time.sleep(2)
+        # fe("/html/body/app-root/app-layout/div/div/div/app-group-management/div/div/div[1]/div/div/div/ul/li[1]/div/a/div[1]").click()  ##first result after searching
+
+
+
+
 
 
