@@ -10,6 +10,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+from Automation.Beelinks_New.Pages.create_ticket import create_tickets
 ################### import of classes from different pages #####################################
 
 from Automation.Beelinks_New.Pages.login import llogin
@@ -25,8 +26,11 @@ from Automation.Beelinks_New.Pages.Settings.automatedresponse import automaticre
 from Automation.Beelinks_New.Pages.Settings.signature_gs import signature_General_settings
 from Automation.Beelinks_New.Pages.Settings.group_management import group_management_class
 from Automation.Beelinks_New.Pages.Settings.keyboardshortcuts import Keyboard_shortcuts
+from Automation.Beelinks_New.Pages.Settings.teams_management import Teamsmanagement
 from Automation.Beelinks_New.Pages.lms import Dashbaord_LMS
-
+from Automation.Beelinks_New.Pages.Settings.ticketruleset import ticketruleset
+from Automation.Beelinks_New.Pages.Settings.authenticationsettings import auth_setting
+from Automation.Beelinks_New.Pages.Settings.form_designer import form_designer
 
 ###############################################################################################
 
@@ -61,7 +65,7 @@ class HOV(unittest.TestCase):
         lg.forgot_passwords()
         time.sleep(2)
         self.driver.back()
-        self.driver.find_element_by_xpath("/html/body/app-root/app-login/div/div/div/div/div[1]/div[2]/div[2]/form/div[1]/input").send_keys("qa.bizzchats@gmail.com")
+        self.driver.find_element_by_xpath("/html/body/app-root/app-login/div/div/div/div/div[1]/div[2]/div[2]/form/div[1]/input").send_keys("talhahhulhub@gmail.com")
         self.driver.find_element_by_xpath("/html/body/app-root/app-login/div/div/div/div/div[1]/div[2]/div[2]/form/div[2]/div/input").send_keys("12345678")
         self.driver.find_element_by_xpath("/html/body/app-root/app-login/div/div/div/div/div[1]/div[2]/div[2]/form/div[3]/button").click()
 
@@ -203,27 +207,51 @@ class HOV(unittest.TestCase):
         if x:
             print("Agent has been unassigned")
 
+    def test_m_teams_management(self):
+        driver=self.driver
+        driver.implicitly_wait(20)
+        tm=Teamsmanagement(driver)
+        tm.add_teams_management_method()
+
+    def test_m1_authentication(self):
+        driver=self.driver
+        self.driver.implicitly_wait(20)
+        auth=auth_setting(driver)
+        auth.authentication_setting_method()
+
+    def test_n_ticket_rulset(self):
+        # driver=self.driver
+        self.driver.implicitly_wait(20)
+        trs=ticketruleset(self.driver)
+        trs.ticket_ruleset() #####method  calling from file
+        trs.ticketruleset_Creation() ##calling second function to create rule set
+
+    def test_o_formdesigner(self):
+        driver=self.driver
+        driver.implicitly_wait(20)
+        fd=form_designer(driver)
+        fd.form_designer_method()
+        url=driver.current_url
+        self.assertEqual(url,"https://new.beelinks.solutions/settings/ticket-management/form-designer")
+        print("Url of form designer page is verified")
+
+
+
+    def test_d_create_ticket(self):
+        self.driver.implicitly_wait(30)
+        driver=self.driver
+        ct=create_tickets(driver)
+        ct.create_tickets_manual()
+        time.sleep(5)
 
 
 
 
 
 
-    # def test_d_create_ticket(self):
-    #     self.driver.implicitly_wait(30)
-    #     driver=self.driver
-    #     ct=create_tickets(driver)
-    #     ct.create_tickets_manual()
-    #     time.sleep(5)
 
 
-
-
-
-
-
-
-    def test_i_lmscmd(self):
+    def test_m_lmscmd(self):
         self.driver.implicitly_wait(30)
         driver=self.driver
         dlms=Dashbaord_LMS(driver)

@@ -1,6 +1,6 @@
 import random
 import time
-
+import string
 from selenium.webdriver.common.keys import Keys
 
 
@@ -113,7 +113,7 @@ class Createagent():
 
 
     def createagent_method(self):
-        self.driver.implicitly_wait(30)
+        self.driver.implicitly_wait(10)
         random_number=random.randint(0,999999999)
         fe=self.driver.find_element_by_xpath #storing driver.find element in variable to use next time
         fe(self.plussign_xpath).click()
@@ -132,8 +132,26 @@ class Createagent():
 
         fe(self.extension).send_keys(random_number) #extension
         fe(self.email).send_keys("bingo",random_number,"@test.com")#email
+        time.sleep(3)
+        lettrr = random.choice(string.ascii_lowercase)
+
+        while True:
+            try:
+                error_message_of_email=fe("/html/body/div[2]/div[2]/div/mat-dialog-container/app-add-agent-dialog/div/form/div[5]/div[1]/div/small").text
+
+                if error_message_of_email=="This email has been registered already":
+                    fe(self.email).clear()
+                    rd=random.randint(0, 99999999999)
+                    fe(self.email).send_keys("bingo",lettrr,rd,"@test.com")#email
+
+            except:
+                print("email is not registered before")
+                break
+
+
+
         fe(self.password).send_keys("12345678")
-        time.sleep(2)
+        time.sleep(1)
 
         fe(self.role).send_keys("admin",Keys.RETURN)
         fe(self.group).send_keys("qa testing",Keys.RETURN)
@@ -174,6 +192,7 @@ class Createagent():
         fe(self.firstname_editprofile).send_keys("_updated")
         fe(self.nickname_editprofile).send_keys("_updated")
         fe(self.manager_editprofiel).send_keys("qa.bizzchats@gmail.com",Keys.ENTER)
+        time.sleep(3)
         managername=fe("/html/body/div[2]/div[2]/div/mat-dialog-container/app-edit-profile-dialog/div/form/div[1]/div[4]/div[1]/ng-select/ng-dropdown-panel/div/div[2]/div/span").text
 
         if managername == "qa.bizzchats@gmail.com":
@@ -217,7 +236,7 @@ class Createagent():
         fe=self.driver.find_element_by_xpath
         fe(self.edit_role_icon).click()
 
-        role=["admin","supervisor","agent","Whatsapp agent", "Sales Person"]
+        role=["supervisor","agent","Whatsapp agent", "Sales Person"]
 
         rd=random.randint(0,4)
 
@@ -239,10 +258,10 @@ class Createagent():
         fe(self.confirm_password_textfield).send_keys("1234")
 
         first_field_password_length_message=fe(self.error_message_of_first_field).text #capturing the error messgae of first field
-        print(first_field_password_length_message)
+        print("You have entered the wrong password ",first_field_password_length_message)
 
         second_field_error_message=fe(self.error_message_of_second_field).text
-        print(second_field_error_message)
+        print("You have entered the wrong password ",second_field_error_message)
 
         #condition of erroe messages
 
