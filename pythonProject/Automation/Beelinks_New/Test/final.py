@@ -31,6 +31,7 @@ from Automation.Beelinks_New.Pages.lms import Dashbaord_LMS
 from Automation.Beelinks_New.Pages.Settings.ticketruleset import ticketruleset
 from Automation.Beelinks_New.Pages.Settings.authenticationsettings import auth_setting
 from Automation.Beelinks_New.Pages.Settings.form_designer import form_designer
+from Automation.Beelinks_New.Pages.Settings.incoming_emails import incomingEmail
 
 ###############################################################################################
 
@@ -235,6 +236,11 @@ class HOV(unittest.TestCase):
         self.assertEqual(url,"https://new.beelinks.solutions/settings/ticket-management/form-designer")
         print("Url of form designer page is verified")
 
+    def test_o1_incoming_email(self):
+        driver=self.driver
+        driver.implicitly_wait(20)
+        ie=incomingEmail(driver)
+        ie.email_forwarder()
 
 
     def test_d_create_ticket(self):
