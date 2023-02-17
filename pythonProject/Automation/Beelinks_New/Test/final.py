@@ -28,10 +28,11 @@ from Automation.Beelinks_New.Pages.Settings.group_management import group_manage
 from Automation.Beelinks_New.Pages.Settings.keyboardshortcuts import Keyboard_shortcuts
 from Automation.Beelinks_New.Pages.Settings.teams_management import Teamsmanagement
 from Automation.Beelinks_New.Pages.lms import Dashbaord_LMS
-from Automation.Beelinks_New.Pages.Settings.ticketruleset import ticketruleset
+from Automation.Beelinks_New.Pages.Settings.rulesetsettings import ticketruleset
 from Automation.Beelinks_New.Pages.Settings.authenticationsettings import auth_setting
 from Automation.Beelinks_New.Pages.Settings.form_designer import form_designer
 from Automation.Beelinks_New.Pages.Settings.incoming_emails import incomingEmail
+from Automation.Beelinks_New.Pages.Settings.ticketscenarioautomation import ticketSCenario
 
 ###############################################################################################
 
@@ -241,6 +242,15 @@ class HOV(unittest.TestCase):
         driver.implicitly_wait(20)
         ie=incomingEmail(driver)
         ie.email_forwarder()
+
+    def test_o2_ticketSCenario(self):
+        driver=self.driver
+        driver.implicitly_wait(20)
+        ts=ticketSCenario(driver)
+        ts.ticketscenariomethod()
+
+
+
 
 
     def test_d_create_ticket(self):
