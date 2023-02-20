@@ -50,7 +50,10 @@ class Dashbaord_LMS():
         self.visitors_text_v=self.driver.find_element_by_xpath(self.visitors_text).text
         self.agent_list_v=self.driver.find_element_by_xpath(self.agets_list).text
 
-
+        s=self.driver.find_element_by_xpath("/html/body/app-root/app-layout/div/div/div/app-lms/div/div/div[1]/div/div[1]").text
+        print(s)
+        t=self.driver.find_element_by_xpath("/html/body/app-root/app-layout/div/div/div/app-lms/div/div/div[1]/div/div[2]").text
+        print(t)
 
 
 

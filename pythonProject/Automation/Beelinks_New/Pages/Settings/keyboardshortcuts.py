@@ -22,42 +22,52 @@ class Keyboard_shortcuts():
         time.sleep(3)
 
 
-        ##data of raw 1
-        raw1 = fe("/html/body/app-root/app-layout/div/div/div/app-keyboard-shortcuts/div/div/div/div/div/div[2]/table/tbody/tr[1]").text
-        raw1 = raw1.replace('\n', ' ')
-        # raw1 = '  '.join(raw1.split())
-        print(raw1)
+            #####################################  PRINTING ROW WISE DATA MANUALLY #####################################################
 
-        ##data of raw 2
-        raw2 = fe("/html/body/app-root/app-layout/div/div/div/app-keyboard-shortcuts/div/div/div/div/div/div[2]/table/tbody/tr[2]").text
-        raw2 = raw2.replace('\n', ' ')
-        # raw2 = '  '.join(raw2.split())
-        print(raw2)
-
-        ##data of raw 3
-        raw3 = fe("/html/body/app-root/app-layout/div/div/div/app-keyboard-shortcuts/div/div/div/div/div/div[2]/table/tbody/tr[3]").text
-        raw3 = raw3.replace('\n', ' ')
-        # raw3 = '  '.join(raw3.split())
-        print(raw3)
-
-
-        ##data of raw 4
-        raw4 = fe("/html/body/app-root/app-layout/div/div/div/app-keyboard-shortcuts/div/div/div/div/div/div[2]/table/tbody/tr[4]").text
-        raw4 = raw4.replace('\n', ' ')
-        # raw4 = '  '.join(raw4.split())
-        print(raw4)
-
-        ##data of raw 5
-        raw5 = fe("/html/body/app-root/app-layout/div/div/div/app-keyboard-shortcuts/div/div/div/div/div/div[2]/table/tbody/tr[5]").text
-        raw5 = raw5.replace('\n', ' ')
-        # raw5 = '  '.join(raw5.split())
-        print(raw5)
-
-
-        ##data of raw 6
-        raw6 = fe("/html/body/app-root/app-layout/div/div/div/app-keyboard-shortcuts/div/div/div/div/div/div[2]/table/tbody/tr[6]").text
-        raw6 = raw6.replace('\n', ' ')
+        # ##data of raw 1
+        # raw1 = fe("/html/body/app-root/app-layout/div/div/div/app-keyboard-shortcuts/div/div/div/div/div/div[2]/table/tbody/tr[1]").text
+        # raw1 = raw1.replace('\n', ' ')
+        # # raw1 = '  '.join(raw1.split())
+        # print(raw1)
+        #
+        # ##data of raw 2
+        # raw2 = fe("/html/body/app-root/app-layout/div/div/div/app-keyboard-shortcuts/div/div/div/div/div/div[2]/table/tbody/tr[2]").text
+        # raw2 = raw2.replace('\n', ' ')
+        # # raw2 = '  '.join(raw2.split())
+        # print(raw2)
+        #
+        # ##data of raw 3
+        # raw3 = fe("/html/body/app-root/app-layout/div/div/div/app-keyboard-shortcuts/div/div/div/div/div/div[2]/table/tbody/tr[3]").text
+        # raw3 = raw3.replace('\n', ' ')
+        # # raw3 = '  '.join(raw3.split())
+        # print(raw3)
+        #
+        #
+        # ##data of raw 4
+        # raw4 = fe("/html/body/app-root/app-layout/div/div/div/app-keyboard-shortcuts/div/div/div/div/div/div[2]/table/tbody/tr[4]").text
+        # raw4 = raw4.replace('\n', ' ')
+        # # raw4 = '  '.join(raw4.split())
+        # print(raw4)
+        #
+        # ##data of raw 5
+        # raw5 = fe("/html/body/app-root/app-layout/div/div/div/app-keyboard-shortcuts/div/div/div/div/div/div[2]/table/tbody/tr[5]").text
+        # raw5 = raw5.replace('\n', ' ')
+        # # raw5 = '  '.join(raw5.split())
+        # print(raw5)
+        #
+        #
+        # ##data of raw 6
+        # raw6 = fe("/html/body/app-root/app-layout/div/div/div/app-keyboard-shortcuts/div/div/div/div/div/div[2]/table/tbody/tr[6]").text
+        # raw6 = raw6.replace('\n', ' ')
         # raw6 = '  '.join(raw6.split())
-        print(raw6)
+        # print(raw6)
 
+    ################# PRINTING ROW DATA WITH THE HELP OF LOOP ######################
+        rows = len(self.driver.find_elements_by_xpath("/html/body/app-root/app-layout/div/div/div/app-keyboard-shortcuts/div/div/div/div/div/div[2]/table/tbody/tr"))
+        print("#     Command     Key Binding     When")
+        for r in range(1,rows+1):
+            Allrows = fe('/html/body/app-root/app-layout/div/div/div/app-keyboard-shortcuts/div/div/div/div/div/div[2]/table/tbody/tr['+str(r)+']').text
+            # Allrows = Allrows.replace('\n','')
+            # raw6 = '  '.join(raw6.split())
+            print(Allrows)
 

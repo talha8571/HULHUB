@@ -13,7 +13,7 @@ class create_tickets():
         self.state="/html/body/app-root/app-layout/div/div/div/app-kycapplication/div/div/div/div[2]/div/div/div/div/div/div/div/form/div[1]/div[2]/div/ng-select/div/div/div[2]/input"
         self.priority="/html/body/app-root/app-layout/div/div/div/app-kycapplication/div/div/div/div[2]/div/div/div/div/div/div/div/form/div[2]/div[1]/div/ng-select/div/div/div[2]/input"
         self.group="/html/body/app-root/app-layout/div/div/div/app-kycapplication/div/div/div/div[2]/div/div/div/div/div/div/div/form/div[2]/div[2]/div/ng-select/div/div/div[2]/input"
-        self.agent="/html/body/app-root/app-layout/div/div/div/app-kycapplication/div/div/div/div[2]/div/div/div/div/div/div/div/form/div[3]/div[1]/div/ng-select/div/div/div[2]/input"
+        self.agent="/html/body/app-root/app-layout/div/div/div/app-kycapplication/div/div/div/div[2]/div/div/div/div/div/div/div/form/div[3]/div[1]/div/ng-select/div/div/div[3]/input"
         self.watchers="/html/body/app-root/app-layout/div/div/div/app-kycapplication/div/div/div/div[2]/div/div/div/div/div/div/div/form/div[3]/div[2]/div/ng-select/div/div/div[2]/input"
         self.visitors_name="/html/body/app-root/app-layout/div/div/div/app-kycapplication/div/div/div/div[2]/div/div/div/div/div/div/div/form/div[4]/div[1]/div/input"
         self.visiors_email="/html/body/app-root/app-layout/div/div/div/app-kycapplication/div/div/div/div[2]/div/div/div/div/div/div/div/form/div[4]/div[2]/div/input"
@@ -30,8 +30,12 @@ class create_tickets():
         fe=self.driver.find_element_by_xpath
         fe(self.plussign_xpath).click() ##plus sign of maneu
         fe(self.create_Ticket_xpath).click()#create tciket from menu
-        fe(self.subject_field).send_keys("FROM AUTOMATION TESTING", random_number) #subject
+        subject="FROM AUTOMATION TESTING"+str(random_number)
+        fe(self.subject_field).send_keys(subject) #subject
+        time.sleep(2)
         fe(self.state).send_keys("OPEN",Keys.ENTER) #selecting state
+        time.sleep(2)
+
         fe(self.priority).send_keys("Medium", Keys.ENTER)  # selecting priority
         time.sleep(1)
         fe(self.group).send_keys("QA Testing", Keys.ENTER)  # selecting group
@@ -39,11 +43,15 @@ class create_tickets():
 
         time.sleep(2)
         fe(self.agent).send_keys("qa.bizzchats@gmail.com",Keys.ENTER)
-        time.sleep(1)
+        time.sleep(2)
         fe(self.watchers).send_keys("talhahhulhub@gmail.com",Keys.ENTER)#selection watchers
-        time.sleep(1)
+        time.sleep(2)
         fe(self.visitors_name).send_keys("Automation")#visiitors name
+        time.sleep(2)
+
         fe(self.visiors_email).send_keys("Automation",str(random_number)+"@gmail.com") #visitors email
+        time.sleep(2)
+
         fe(self.tags).send_keys("#Automation",Keys.ENTER,"#Testing",Keys.ENTER)# tags
         time.sleep(2)
         self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
@@ -53,3 +61,6 @@ class create_tickets():
         fe(self.message).send_keys(Keys.DELETE)
         fe(self.message).send_keys("This message is from automation script ")
         fe(self.submit_button).click()
+
+        time.sleep(2)
+        fe("/html/body/app-root/app-layout/div/div/div/app-ticket/div/div/div[1]/div/div/app-ticket-list/div/div/div[1]/div[1]/div[2]/form/div[4]/div/input").send_keys(subject)
