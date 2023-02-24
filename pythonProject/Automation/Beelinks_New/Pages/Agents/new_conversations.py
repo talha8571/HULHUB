@@ -26,18 +26,18 @@ class nEW_COnversations():
         huluhb_icon=fe("/html/body/app-root/app-layout/div/app-topbar/header/div/div[1]/div/a[2]/span[1]/img").click() #hulub icon click to land on dasboard
         agentstab=fe("/html/body/app-root/app-layout/div/app-sidebar/div/div/div/div/ul/li[8]/a").click() #agents tab from left panel
 
-        fe(self.conversation_icon_to_open_option).click()
-        fe(self.new_conversation_text).click()
+        fe(self.conversation_icon_to_open_option).click()##click to open option
+        fe(self.new_conversation_text).click() #click on create new conversation icon
 
         ed=random.randint(1,9)
-        fe(self.search_bar_of_agent).send_keys("Automation",ed)
+        fe(self.search_bar_of_agent).send_keys("Automation",ed) ##searching agent in the search bar
         time.sleep(6)
-        email1=fe(self.email_of_agent_From_Searchbar).text
-        fe(self.agent_selection_from_list).click()
+        email1=fe(self.email_of_agent_From_Searchbar).text ##capturing the text of email after search
+        fe(self.agent_selection_from_list).click() #clicking on the searched result
         time.sleep(1)
-        fe(self.start_chat_button).click()
+        fe(self.start_chat_button).click() #click start chat button
         time.sleep(1)
-        fe("/html/body/app-root/app-layout/div/div/div/app-agents/div/div/div[1]/div/div[3]/app-agent-conv-list-sidebar/div/div[1]/div/input").send_keys(email1)#3search the selected email
+        fe("/html/body/app-root/app-layout/div/div/div/app-agents/div/div/div[1]/div/div[3]/app-agent-conv-list-sidebar/div/div[1]/div/input").send_keys(email1)#3search the selected email in agents chats search bar
         time.sleep(2)
         fe("/html/body/app-root/app-layout/div/div/div/app-agents/div/div/div[1]/div/div[3]/app-agent-conv-list-sidebar/div/div[2]/ul/li[1]/a/div/div/div[2]/div/div[2]").click()
         time.sleep(2)

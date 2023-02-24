@@ -5,10 +5,6 @@ import time
 import HtmlTestRunner
 from webdriver_manager.chrome import ChromeDriverManager
 from seleniumwire import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 
 from Automation.Beelinks_New.Pages.create_ticket import create_tickets
 ################### import of classes from different pages #####################################
@@ -22,18 +18,20 @@ from Automation.Beelinks_New.Pages.Agents.upload_bulk_supervisor import bulk_sup
 from Automation.Beelinks_New.Pages.visitors import visitors_class
 
 from Automation.Beelinks_New.Pages.marketing import marketing_tab
-from Automation.Beelinks_New.Pages.Settings.automatedresponse import automaticresponse
-from Automation.Beelinks_New.Pages.Settings.signature_gs import signature_General_settings
-from Automation.Beelinks_New.Pages.Settings.group_management import group_management_class
-from Automation.Beelinks_New.Pages.Settings.keyboardshortcuts import Keyboard_shortcuts
-from Automation.Beelinks_New.Pages.Settings.teams_management import Teamsmanagement
+from Automation.Beelinks_New.Pages.Settings.general.automatedresponse import automaticresponse
+from Automation.Beelinks_New.Pages.Settings.general.signature_gs import signature_General_settings
+from Automation.Beelinks_New.Pages.Settings.ticketManagement.group_management import group_management_class
+from Automation.Beelinks_New.Pages.Settings.general.keyboardshortcuts import Keyboard_shortcuts
+from Automation.Beelinks_New.Pages.Settings.ticketManagement.teams_management import Teamsmanagement
 from Automation.Beelinks_New.Pages.lms import Dashbaord_LMS
-from Automation.Beelinks_New.Pages.Settings.rulesetsettings import ticketruleset
-from Automation.Beelinks_New.Pages.Settings.authenticationsettings import auth_setting
-from Automation.Beelinks_New.Pages.Settings.form_designer import form_designer
-from Automation.Beelinks_New.Pages.Settings.incoming_emails import incomingEmail
-from Automation.Beelinks_New.Pages.Settings.ticketscenarioautomation import ticketSCenario
-
+from Automation.Beelinks_New.Pages.Settings.ticketManagement.rulesetsettings import ticketruleset
+from Automation.Beelinks_New.Pages.Settings.general.authenticationsettings import auth_setting
+from Automation.Beelinks_New.Pages.Settings.ticketManagement.form_designer import form_designer
+from Automation.Beelinks_New.Pages.Settings.ticketManagement.incoming_emails import incomingEmail
+from Automation.Beelinks_New.Pages.Settings.ticketManagement.ticketscenarioautomation import ticketSCenario
+from Automation.Beelinks_New.Pages.Settings.ticketManagement.custoermfields import customfields
+from Automation.Beelinks_New.Pages.Settings.ticketManagement.customer_survey import customer_survey
+from Automation.Beelinks_New.Pages.Settings.ticketManagement.tagcloud import tag_cloud
 ###############################################################################################
 
 from selenium.webdriver.chrome.options import Options
@@ -137,13 +135,13 @@ class HOV(unittest.TestCase):
         ng=new_group(driver)
         ng.create_new_group()
 
-    def test_f_upload_bulkshift(self):
-
-        driver=self.driver
-        driver.implicitly_wait(20)
-        us=shift_timings(driver)
-        us.upload_shift_timings_method()
-        time.sleep(10)
+                                                 # def test_f_upload_bulkshift_timings(self):   The functionality has been removed
+    #
+                                      #     driver=self.driver
+    #                                   driver.implicitly_wait(20)
+    #                          us=shift_timings(driver)
+    #                         us.upload_shift_timings_method()
+    #                          time.sleep(10)
 
     def test_g_upload_supervisor(self):
         driver=self.driver
@@ -248,6 +246,44 @@ class HOV(unittest.TestCase):
         driver.implicitly_wait(20)
         ts=ticketSCenario(driver)
         ts.ticketscenariomethod()
+
+    def test_o3_custom_fields(self):## custome fields in the general settings
+        driver=self.driver
+        self.driver.implicitly_wait(30)
+        cf=customfields(driver)
+        cf.custom_field_method()
+        url=self.driver.current_url
+        print("current url is =", url)
+        self.assertEqual(url,"https://new.beelinks.solutions/settings/ticket-management/custom-fields")
+        print("User land on custom field page and URL is verified as well")
+
+    def test_o4_customer_Survery(self):## customer survery in the general settings
+        driver=self.driver
+        self.driver.implicitly_wait(30)
+        css=customer_survey(driver)
+        css.customer_survery_method()
+        url=self.driver.current_url
+        print("current url is =", url)
+        self.assertEqual(url,"https://new.beelinks.solutions/settings/ticket-management/customer-survey")
+        print("User land on customer survey page and URL is verified as well")
+
+    def test_o5_tagcloud(self):
+        driver=self.driver
+        self.driver.implicitly_wait(30)
+        tag=tag_cloud(driver)
+        tag.tag_cloud_method()
+        time.sleep(2)
+        print("Tag cloud method executed")
+        url = self.driver.current_url
+        print("current url is =", url)
+        self.assertEqual(url, "https://new.beelinks.solutions/settings/ticket-management/tag-cloud")
+        print("User land on tag cloud page and URL is verified as well")
+        time.sleep(3)
+
+        tag_text=self.driver.find_element_by_xpath("/html/body/app-root/app-layout/div/div/div/app-tag-cloud/div/div/div[1]/div/div[2]/span[2]").is_displayed()
+
+        print(tag_text)
+
 
 
 

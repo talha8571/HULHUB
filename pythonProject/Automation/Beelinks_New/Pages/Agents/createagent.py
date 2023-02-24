@@ -49,7 +49,7 @@ class Createagent():
 
         self.agentsname_fromsearch="/html/body/app-root/app-layout/div/div/div/app-agents/div/div/div[1]/div/div[3]/app-agent-list-sidebar/div[2]/ul/li/div/div/div[3]/h5"
         self.edit_profile_icon="/html/body/app-root/app-layout/div/div/div/app-agents/div/div/div[2]/div/div/div/div/div/div[1]/div/div/div/div[2]/div/div[1]/ul/li[1]"
-        self.firstname_editprofile="/html/body/div[2]/div[2]/div/mat-dialog-container/app-edit-profile-dialog/div/form/div[1]/div[1]/div[1]/input"
+        self.firstname_editprofile="edit-agent-firstname"
         self.nickname_editprofile="/html/body/div[2]/div[2]/div/mat-dialog-container/app-edit-profile-dialog/div/form/div[1]/div[2]/div[1]/input"
         self.manager_editprofiel="/html/body/div[2]/div[2]/div/mat-dialog-container/app-edit-profile-dialog/div/form/div[1]/div[4]/div[1]/ng-select/div/div/div[2]/input"
         self.last_name_editprofile="/html/body/div[2]/div[2]/div/mat-dialog-container/app-edit-profile-dialog/div/form/div[1]/div[1]/div[2]/input"
@@ -79,14 +79,14 @@ class Createagent():
         ###############################################################################
 
         self.edit_password_agent_profile="/html/body/app-root/app-layout/div/div/div/app-agents/div/div/div[2]/div/div/div/div/div/div[1]/div/div/div/div[2]/div/div[1]/ul/li[3]"
-        self.newpassword_textfield="/html/body/div[2]/div[2]/div/mat-dialog-container/app-change-password-dialog/div[2]/form/div[1]/input"
+        self.newpassword_textfield="changePassword-newPass" ##id of new pasword tect
         self.view_iconof_new_password="/html/body/div[2]/div[2]/div/mat-dialog-container/app-change-password-dialog/div[2]/form/div[1]/span/div/i"
-        self.confirm_password_textfield="/html/body/div[2]/div[2]/div/mat-dialog-container/app-change-password-dialog/div[2]/form/div[3]/input"
+        self.confirm_password_textfield="changePassword-confirmNewPass" #3id of confirm password
         self.view_icon_of_confirmpassword="/html/body/div[2]/div[2]/div/mat-dialog-container/app-change-password-dialog/div[2]/form/div[1]/span/div/i"
-        self.submit_button_of_password_popup="/html/body/div[2]/div[2]/div/mat-dialog-container/app-change-password-dialog/div[3]/mat-dialog-actions/button[1]"
+        self.submit_button_of_password_popup="changePassword-submit" ##id of submit button password popup
         self.error_message_of_same_password="/html/body/div[2]/div[2]/div/mat-dialog-container/app-change-password-dialog/div[2]/form/div[4]/small"
-        self.error_message_of_first_field="/html/body/div[2]/div[2]/div/mat-dialog-container/app-change-password-dialog/div[2]/form/div[2]/small"
-        self.error_message_of_second_field="/html/body/div[2]/div[2]/div/mat-dialog-container/app-change-password-dialog/div[2]/form/div[4]/small"
+        self.error_message_of_first_field="/html/body/div[2]/div[2]/div/mat-dialog-container/app-change-password-dialog/div/div[2]/form/div[2]/small"
+        self.error_message_of_second_field="/html/body/div[2]/div[2]/div/mat-dialog-container/app-change-password-dialog/div/div[2]/form/div[4]/small"
         self.ok_button_of_confirmation="/html/body/ngb-modal-window/div/div/app-confirmation/div[3]/button[1]" #ok button after changing password
 
 
@@ -189,7 +189,7 @@ class Createagent():
         fe(self.edit_profile_icon).click() #click on edit profile
 
         ##edit the form of agent
-        fe(self.firstname_editprofile).send_keys("_updated")
+        self.driver.find_element_by_id(self.firstname_editprofile).send_keys("_updated")
         fe(self.nickname_editprofile).send_keys("_updated")
         fe(self.manager_editprofiel).send_keys("qa.bizzchats@gmail.com",Keys.ENTER)
         time.sleep(3)
@@ -238,7 +238,7 @@ class Createagent():
 
         role=["supervisor","agent","Whatsapp agent", "Sales Person"]
 
-        rd=random.randint(0,4)
+        rd=random.randint(0,3)
 
         self.role_agent=role[rd]
         fe(self.assignrole_textfield_edit_role).send_keys(self.role_agent, Keys.ENTER)#select role
@@ -254,8 +254,8 @@ class Createagent():
 
         fe=self.driver.find_element_by_xpath
         fe(self.edit_password_agent_profile).click()
-        fe(self.newpassword_textfield).send_keys("1234")
-        fe(self.confirm_password_textfield).send_keys("1234")
+        self.driver.find_element_by_id(self.newpassword_textfield).send_keys("1234")
+        self.driver.find_element_by_id(self.confirm_password_textfield).send_keys("1234")
 
         first_field_password_length_message=fe(self.error_message_of_first_field).text #capturing the error messgae of first field
         print("You have entered the wrong password ",first_field_password_length_message)
@@ -266,8 +266,8 @@ class Createagent():
         #condition of erroe messages
 
         if first_field_password_length_message == "New Password cannot be less than 8 characters" and second_field_error_message == "Confirm Password cannot be less than 8 characters":
-            fe(self.newpassword_textfield).send_keys("5678")
-            fe(self.confirm_password_textfield).send_keys("7896")
+            self.driver.find_element_by_id(self.newpassword_textfield).send_keys("5678")
+            self.driver.find_element_by_id(self.confirm_password_textfield).send_keys("7896")
 
             #capturing messgae of
             second_field_error_message = fe(self.error_message_of_second_field).text
@@ -275,10 +275,10 @@ class Createagent():
 
 
             if second_field_error_message == "New Password & Confirm Password must be same":
-                fe(self.newpassword_textfield).clear()
-                fe(self.newpassword_textfield).send_keys("12345678")
-                fe(self.confirm_password_textfield).clear()
-                fe(self.confirm_password_textfield).send_keys("12345678")
+                self.driver.find_element_by_id(self.newpassword_textfield).clear()
+                self.driver.find_element_by_id(self.newpassword_textfield).send_keys("12345678")
+                self.driver.find_element_by_id(self.confirm_password_textfield).clear()
+                self.driver.find_element_by_id(self.confirm_password_textfield).send_keys("12345678")
 
             else:
                 print("thanks")
@@ -288,7 +288,7 @@ class Createagent():
             print("both messages are different")
 
 
-        fe(self.submit_button_of_password_popup).click() #submit button of popup window
+        self.driver.find_element_by_id(self.submit_button_of_password_popup).click() #submit button of popup window
         time.sleep(2)
         fe(self.ok_button_of_confirmation).click() #ok button of popup window
 
