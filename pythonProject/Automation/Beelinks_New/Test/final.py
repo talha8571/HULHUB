@@ -1,6 +1,7 @@
 import unittest
 from selenium import webdriver
 import time
+import pytest
 #from webdriver_manager.chrome import ChromeDriverManager
 import HtmlTestRunner
 from webdriver_manager.chrome import ChromeDriverManager
@@ -54,7 +55,7 @@ class HOV(unittest.TestCase):
 
 
 
-
+    # @unittest.SkipTest      ### this is used to skip test
     def test_a_login(self):
         driver=self.driver
         self.driver.implicitly_wait(10)
