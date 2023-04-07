@@ -5,7 +5,7 @@ import pytest
 #from webdriver_manager.chrome import ChromeDriverManager
 import HtmlTestRunner
 from webdriver_manager.chrome import ChromeDriverManager
-from seleniumwire import webdriver
+# from seleniumwire import webdriver
 
 from Automation.Beelinks_New.Pages.create_ticket import create_tickets
 ################### import of classes from different pages #####################################
@@ -42,8 +42,7 @@ class HOV(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.option1=Options()
-        cls.option1.add_argument("--disable-notifications")
+
         cls.driver=webdriver.Chrome(ChromeDriverManager().install())
         cls.driver.implicitly_wait(30)
         cls.driver.get("https://new.beelinks.solutions/login")
