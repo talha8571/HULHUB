@@ -42,7 +42,16 @@ class SQA(unittest.TestCase):
         driver=self.driver
         driver.implicitly_wait(20)
         s=sliders(driver)
-        s.slider_execution()
+        time.sleep(2)
+        # s.slider_execution_rgb() ##first function
+        #
+        # self.driver.switch_to_default_content()
+
+        s.double_slider_execution()#second method for double slider
+
+
+
+
         time.sleep(2)
 
     #
