@@ -34,26 +34,11 @@ class sliders():
         greenslider=self.driver.find_element_by_xpath(self.green_slider_icon)
         blueslider=self.driver.find_element_by_xpath(self.blue_slider_icon)
 
-        ##left
-
-        #m0ving the slider using the percentage, first calculate teh width of complete slider
-        fullslidr=self.driver.find_element_by_xpath("/html/body/div[2]")
-        # calculate the percentage offset based on the slider width
-        slider_width = fullslidr.size['width']
-        print(slider_width)
-        percent_offset = 75  # move 25% to the left
-        pixel_offset = int(slider_width * percent_offset / 100)
-        print(pixel_offset)
-        # perform the drag-and-drop action using the pixel offset
-        ActionChains(self.driver).drag_and_drop_by_offset(greenslider, pixel_offset, 0).perform()
 
 
-
-
-
-        #left moving using pixels
+        # # left moving using pixels
         # ActionChains(self.driver).drag_and_drop_by_offset(redslider,-100,0).perform()##moving red slider in start position
-        time.sleep(1)
+        # time.sleep(1)
         # ActionChains(self.driver).drag_and_drop_by_offset(greenslider,-100,0).perform()#3moving green slider in start position
         # time.sleep(1)
         # ActionChains(self.driver).drag_and_drop_by_offset(blueslider,-100,0).perform()##this will move slider in start position
@@ -75,10 +60,48 @@ class sliders():
         # time.sleep(1)
         # ActionChains(self.driver).drag_and_drop_by_offset(blueslider, 100,0).perform()  ##this will move slider in start position
 
+
+
+
+
+
+        ##practice mmethod for moving the sldier
+        #
+        # #m0ving the slider using the percentage, first calculate teh width of complete slider
+        # fullslidr=self.driver.find_element_by_xpath("/html/body/div[2]")
+        # # calculate the percentage offset based on the slider width
+        # slider_width = fullslidr.size['width']
+        # print(slider_width)
+        # percent_offset = 75  # move 25% to the left
+        # pixel_offset = int(slider_width * percent_offset / 100)
+        # print(pixel_offset)
+        # # perform the drag-and-drop action using the pixel offset
+        # ActionChains(self.driver).drag_and_drop_by_offset(greenslider, pixel_offset, 0).perform()
+
+        #
+        # style_attribute = greenslider.get_attribute("style")
+        # print("current style", style_attribute)
+        # self.driver.execute_script("arguments[0].style.left = '75%'", greenslider)
+
+        # Get the width of the slider element
+
+        fullslidergreen = self.driver.find_element_by_xpath("/html/body/div[2]")
+
+        slider_width = self.driver.execute_script("return arguments[0].offsetWidth", fullslidergreen)
+        print("sldier width",slider_width)
+        # Calculate the horizontal offset for the drag and drop action
+        drag_offset = int(slider_width * 0.45)
+        print("drag ofset is",drag_offset)
+        style_attribute = greenslider.get_attribute("style")
+        print("berfore moving current style", style_attribute)
+        ActionChains(self.driver).drag_and_drop_by_offset(greenslider,-drag_offset,0).perform()
+        style_attribute = greenslider.get_attribute("style")
+        print("after moving current style", style_attribute)
+
     def double_slider_execution(self):
 
         self.driver.implicitly_wait(20)
-        self.driver.find_element_by_xpath(self.slider_button_xpath).click()
+        # self.driver.find_element_by_xpath(self.slider_button_xpath).click()
 
         self.driver.find_element_by_id(self.rangetab_id).click()
         self.driver.switch_to.frame(self.driver.find_element_by_xpath(self.iframe_of_slider))

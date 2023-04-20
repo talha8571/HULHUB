@@ -17,6 +17,8 @@ import string
 import re
 from globalsqa.Pages.tabs import firststep_tabs
 from globalsqa.Pages.slider import sliders
+from globalsqa.Pages.tooltip import Tooltip
+from globalsqa.Pages.draganddrop import dragdrop
 
 class SQA(unittest.TestCase):
 
@@ -43,17 +45,30 @@ class SQA(unittest.TestCase):
         driver.implicitly_wait(20)
         s=sliders(driver)
         time.sleep(2)
-        # s.slider_execution_rgb() ##first function
-        #
+        s.slider_execution_rgb() ##first function
+
         # self.driver.switch_to_default_content()
+        #
+        # s.double_slider_execution()#second method for double slider
 
-        s.double_slider_execution()#second method for double slider
+    def test_tooltip(self):
 
-
-
+        driver=self.driver
+        self.driver.get("https://www.globalsqa.com/demo-site/tooltip/")
+        self.driver.implicitly_wait(20)
+        tp=Tooltip(driver)
+        tp.tooltip_method()
 
         time.sleep(2)
 
+    def test_drag_and_drop(self):
+        driver=self.driver
+        self.driver.get("https://www.globalsqa.com/demo-site/draganddrop/")
+        driver.implicitly_wait(20)
+        dd=dragdrop(driver)
+        # dd.draganddrop_method()##method one
+
+        dd.drag_drop_by_ofset()#method 2
     #
     # @classmethod
     # def tearDownClass(cls):

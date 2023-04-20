@@ -1,5 +1,9 @@
 import time
 
+from selenium.webdriver import ActionChains
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+
 
 class firststep_tabs():
 
@@ -49,4 +53,15 @@ class firststep_tabs():
 
         # dfx(self.section3_xpath)
         # dfx(self.section4_xpath)
+
+
+        ##this is only an example code
+    def scrolling_method(self):
+
+
+        self.driver.find_element(By.XPATH, self.sectionD).click()
+        self.driver.find_element(By.XPATH, self.sectionDScroll).click()
+        time.sleep(2)
+        action = ActionChains(self.driver)
+        action.key_down(Keys.CONTROL).send_keys(Keys.END).key_up(Keys.CONTROL).perform()
 

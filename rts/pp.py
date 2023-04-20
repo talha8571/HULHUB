@@ -1,15 +1,20 @@
-class Calculator:
-    def add(self, a, b):
-        return a + b
+class front:  ####parent clas
+    def brake(self, name, age):
+        print("front brake", name, age)
 
-    def add(self, a, b, c):
-        return a + b + c
+    def brake(self, name, age, height):
+        print("hand break", name, age, height)
 
 
-calc = Calculator()
+#
 
-# Overloaded method with two parameters
-print(calc.add(2, 3))  # Output: 5
 
-# Overloaded method with three parameters
-# print(calc.add(2, 3, 4))  # Output: 9
+a = front()
+a.brake("talhah", "23")
+
+#
+#
+# s=a()
+#
+#
+# s.b_mehtod()
