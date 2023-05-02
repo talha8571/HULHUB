@@ -19,6 +19,7 @@ from globalsqa.Pages.tabs import firststep_tabs
 from globalsqa.Pages.slider import sliders
 from globalsqa.Pages.tooltip import Tooltip
 from globalsqa.Pages.draganddrop import dragdrop
+from globalsqa.Pages.hulhubdropdown import dropdownhulhub
 
 class SQA(unittest.TestCase):
 
@@ -30,7 +31,7 @@ class SQA(unittest.TestCase):
         cls.driver.maximize_window()
 
 
-    def test_tabs(self):
+    def test_a_tabs(self):
         driver=self.driver
         driver.implicitly_wait(30)
         fts=firststep_tabs(driver)
@@ -40,18 +41,19 @@ class SQA(unittest.TestCase):
         # a.key_down(Keys.CONTROL).send_keys(Keys.END).keys_up(Keys.CONTROL).perform()
 
 
-    def test_slider(self):
+    def test_b_slider(self):
         driver=self.driver
+        self.driver.get("https://www.globalsqa.com/demo-site/sliders/")
         driver.implicitly_wait(20)
         s=sliders(driver)
         time.sleep(2)
         s.slider_execution_rgb() ##first function
 
-        # self.driver.switch_to_default_content()
+        self.driver.switch_to.default_content()
         #
-        # s.double_slider_execution()#second method for double slider
+        s.double_slider_execution()#second method for double slider
 
-    def test_tooltip(self):
+    def test_c_tooltip(self):
 
         driver=self.driver
         self.driver.get("https://www.globalsqa.com/demo-site/tooltip/")
@@ -61,18 +63,79 @@ class SQA(unittest.TestCase):
 
         time.sleep(2)
 
-    def test_drag_and_drop(self):
+    def test_d_drag_and_drop(self):
         driver=self.driver
         self.driver.get("https://www.globalsqa.com/demo-site/draganddrop/")
         driver.implicitly_wait(20)
         dd=dragdrop(driver)
-        # dd.draganddrop_method()##method one
+        dd.draganddrop_method()##method one
+        time.sleep(2)
 
+        driver.switch_to.default_content()
+        time.sleep(1)
         dd.drag_drop_by_ofset()#method 2
-    #
+
+
+    def test_hulhub_dropdown(self):
+        driver=self.driver
+        self.driver.implicitly_wait(30)
+        driver.get("https://www.hulhub.com/products")
+
+        hl=dropdownhulhub(driver)
+        dp=self.driver.find_element_by_xpath(hl.dropdown_xpath)
+        driver.execute_script("arguments[0].scrollIntoView();", dp)
+        hl.xyz()
+
+
+        list=self.driver.find_element_by_xpath("/html/body/div[1]/main/section[3]/div/div/div[2]/form/div[1]/div[3]/div/div/div/ul/li[1]")
+
+        pakistan=self.driver.find_element_by_xpath("/html/body/div/main/section[3]/div/div/div[2]/form/div[1]/div[3]/div/div/div/ul/li[164]").text
+        pakistan1=self.driver.find_element_by_xpath("/html/body/div/main/section[3]/div/div/div[2]/form/div[1]/div[3]/div/div/div/ul/li[164]")
+
+        print(pakistan)
+
+        # Perform an action to bring the list element into view
+        actions = ActionChains(driver)
+        actions.move_to_element(list)
+        actions.perform()
+
+        s=1
+
+        while s<=244:
+            country=self.driver.find_element_by_xpath(f'/html/body/div/main/section[3]/div/div/div[2]/form/div[1]/div[3]/div/div/div/ul/li[{s}]').text
+            print(country)
+            if pakistan==country:
+                print(country)
+                print("Pakistan found")
+                pakistan1.click()
+
+                break
+            else:
+                # Scroll down using the down arrow key
+                actions = ActionChains(driver)
+                actions.send_keys(Keys.ARROW_DOWN)
+                actions.perform()
+
+
+            s=s+1
+
+
+
+        # Scroll down using the down arrow key
+        actions = ActionChains(driver)
+        actions.send_keys(Keys.END)
+        actions.perform()
+
+
+
+
     # @classmethod
     # def tearDownClass(cls):
     #     cls.driver.quit()
+
+
+
+
 
 if __name__ == '__main__':
     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output="C:/Users/1154-Talha/PycharmProjects/rts/globalsqa/Reports"))

@@ -1,7 +1,6 @@
 import unittest
 from selenium import webdriver
 import time
-import pytest
 #from webdriver_manager.chrome import ChromeDriverManager
 import HtmlTestRunner
 from webdriver_manager.chrome import ChromeDriverManager

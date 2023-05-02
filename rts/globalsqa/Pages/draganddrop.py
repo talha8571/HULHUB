@@ -27,6 +27,7 @@ class dragdrop:
 
     def drag_drop_by_ofset(self):
         self.driver.implicitly_wait(20)
+
         # click on the accepted elements
         self.driver.find_element_by_xpath("/html/body/div/div[1]/div[2]/div/div/div[2]/div/ul/li[2]").click()
 

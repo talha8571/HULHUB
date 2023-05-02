@@ -27,7 +27,7 @@ class sliders():
         self.driver.implicitly_wait(20)
 
 
-        self.driver.find_element_by_xpath(self.slider_button_xpath).click()
+        # self.driver.find_element_by_xpath(self.slider_button_xpath).click()
         self.driver.switch_to.frame(self.driver.find_element_by_xpath("/html/body/div/div[1]/div[2]/div/div/div[2]/div/div/div[1]/p/iframe"))
         time.sleep(2)
         redslider=self.driver.find_element_by_xpath(self.red_slider_icon)

@@ -45,8 +45,7 @@ class llogin():
             # element=ss(self.validation_message_for_email)
             # element_lenght = len(element)
             try:
-                self.vm = ss(
-                    self.validation_message_for_email).text  # this try is to check if message is present then print if not then move to next step
+                self.vm = ss(self.validation_message_for_email).text  # this try is to check if message is present then print if not then move to next step
                 print(self.vm)
             except:
                 print("No")
