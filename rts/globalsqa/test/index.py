@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from selenium import webdriver
 from selenium import webdriver
 import time
@@ -20,6 +22,8 @@ from globalsqa.Pages.slider import sliders
 from globalsqa.Pages.tooltip import Tooltip
 from globalsqa.Pages.draganddrop import dragdrop
 from globalsqa.Pages.hulhubdropdown import dropdownhulhub
+from globalsqa.Pages.new_window import new_window
+from colorama import Fore
 
 class SQA(unittest.TestCase):
 
@@ -74,7 +78,7 @@ class SQA(unittest.TestCase):
         driver.switch_to.default_content()
         time.sleep(1)
         dd.drag_drop_by_ofset()#method 2
-
+    #
 
     def test_hulhub_dropdown(self):
         driver=self.driver
@@ -89,10 +93,11 @@ class SQA(unittest.TestCase):
 
         list=self.driver.find_element_by_xpath("/html/body/div[1]/main/section[3]/div/div/div[2]/form/div[1]/div[3]/div/div/div/ul/li[1]")
 
-        pakistan=self.driver.find_element_by_xpath("/html/body/div/main/section[3]/div/div/div[2]/form/div[1]/div[3]/div/div/div/ul/li[164]").text
-        pakistan1=self.driver.find_element_by_xpath("/html/body/div/main/section[3]/div/div/div[2]/form/div[1]/div[3]/div/div/div/ul/li[164]")
+        malaysia=self.driver.find_element_by_xpath("/html/body/div/main/section[3]/div/div/div[2]/form/div[1]/div[3]/div/div/div/ul/li[130]").text
+        malaysia1=self.driver.find_element_by_xpath("/html/body/div/main/section[3]/div/div/div[2]/form/div[1]/div[3]/div/div/div/ul/li[130]")
 
-        print(pakistan)
+
+
 
         # Perform an action to bring the list element into view
         actions = ActionChains(driver)
@@ -103,12 +108,15 @@ class SQA(unittest.TestCase):
 
         while s<=244:
             country=self.driver.find_element_by_xpath(f'/html/body/div/main/section[3]/div/div/div[2]/form/div[1]/div[3]/div/div/div/ul/li[{s}]').text
-            print(country)
-            if pakistan==country:
-                print(country)
-                print("Pakistan found")
-                pakistan1.click()
-
+            print(country.encode('utf-8').decode('ascii', 'ignore')+ "<br/>")
+            # country_str=country_bytes.decode('utf-8')
+            # print(country_str)
+            if malaysia==country:
+                # print(country.encode('utf-8').decode('ascii', 'ignore')+ "<br/>")
+                # print("expected country ", country)
+                print("expeccetd country = ", country.encode('utf-8').decode('ascii', 'ignore')+ "<br/>")
+                #
+                print("Desired Country Found!!!!!!!!!!!"+ "<br/>")
                 break
             else:
                 # Scroll down using the down arrow key
@@ -119,12 +127,16 @@ class SQA(unittest.TestCase):
 
             s=s+1
 
-
-
         # Scroll down using the down arrow key
         actions = ActionChains(driver)
         actions.send_keys(Keys.END)
         actions.perform()
+
+    def test_newwindow(self):
+        driver=self.driver
+        self.driver.get("https://www.globalsqa.com/demo-site/frames-and-windows/")
+        nw=new_window(driver)
+        nw.new_window_method()
 
 
 
@@ -138,4 +150,4 @@ class SQA(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output="C:/Users/1154-Talha/PycharmProjects/rts/globalsqa/Reports"))
+    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='C:/Users/1154-Talha/PycharmProjects/rts/globalsqa/Reports'))

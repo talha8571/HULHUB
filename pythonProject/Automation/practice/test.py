@@ -35,6 +35,9 @@ for handle in handles:
 s = driver.current_window_handle
 print(s)
 driver.close()
+
+
+
 handles = driver.window_handles  # return all the handle value of windows
 print(handles)
 for handle in handles:
