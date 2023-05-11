@@ -45,4 +45,3 @@
 # # person2.sleep()  # Output: Bob is sleeping.
 # # person1.sleep()
 #
-
