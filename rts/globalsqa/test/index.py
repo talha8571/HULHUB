@@ -16,6 +16,8 @@ import HtmlTestRunner
 from webdriver_manager.chrome import ChromeDriverManager
 import random
 import string
+from colorama import Fore
+
 import re
 from globalsqa.Pages.tabs import firststep_tabs
 from globalsqa.Pages.slider import sliders
@@ -23,8 +25,8 @@ from globalsqa.Pages.tooltip import Tooltip
 from globalsqa.Pages.draganddrop import dragdrop
 from globalsqa.Pages.hulhubdropdown import dropdownhulhub
 from globalsqa.Pages.new_window import new_window
-from colorama import Fore
-
+from globalsqa.Pages.toolbar import toolbarClass
+from globalsqa.Pages.datepicker import datePicker
 class SQA(unittest.TestCase):
 
     @classmethod
@@ -108,15 +110,15 @@ class SQA(unittest.TestCase):
 
         while s<=244:
             country=self.driver.find_element_by_xpath(f'/html/body/div/main/section[3]/div/div/div[2]/form/div[1]/div[3]/div/div/div/ul/li[{s}]').text
-            print(country.encode('utf-8').decode('ascii', 'ignore')+ "<br/>")
+            print(country.encode('utf-8').decode('ascii', 'ignore'), '<br/>')
             # country_str=country_bytes.decode('utf-8')
             # print(country_str)
             if malaysia==country:
                 # print(country.encode('utf-8').decode('ascii', 'ignore')+ "<br/>")
                 # print("expected country ", country)
-                print("expeccetd country = ", country.encode('utf-8').decode('ascii', 'ignore')+ "<br/>")
+                print("expeccetd country = ", country.encode('utf-8').decode('ascii', 'ignore')+ '<br/>')
                 #
-                print("Desired Country Found!!!!!!!!!!!"+ "<br/>")
+                print("Desired Country Found!!!!!!!!!!!" '<br/>')
                 break
             else:
                 # Scroll down using the down arrow key
@@ -138,6 +140,23 @@ class SQA(unittest.TestCase):
         nw=new_window(driver)
         nw.new_window_method()
 
+
+    def test_toolbar(self):
+        driver=self.driver
+        driver.get("https://www.globalsqa.com/demo-site/toolbar/")
+        driver.implicitly_wait(20)
+        tlb=toolbarClass(driver)
+        tlb.frame_scrolling()
+        time.sleep(2)
+
+    def test_date_picker(self):
+        driver=self.driver
+        self.driver.get("https://www.globalsqa.com/demo-site/datepicker/")
+        time.sleep(10)
+        time.sleep(1)
+        driver.implicitly_wait(10)
+        dp=datePicker(driver)
+        dp.date_picker_method()
 
 
 

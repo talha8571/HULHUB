@@ -36,29 +36,29 @@ class sliders():
 
 
 
-        # # left moving using pixels
-        # ActionChains(self.driver).drag_and_drop_by_offset(redslider,-100,0).perform()##moving red slider in start position
-        # time.sleep(1)
-        # ActionChains(self.driver).drag_and_drop_by_offset(greenslider,-100,0).perform()#3moving green slider in start position
-        # time.sleep(1)
-        # ActionChains(self.driver).drag_and_drop_by_offset(blueslider,-100,0).perform()##this will move slider in start position
-        # time.sleep(1)
-        #
-        # ##center
-        #
-        # ActionChains(self.driver).drag_and_drop_by_offset(redslider, 40,0).perform()  ##moving red slider in start position
-        # time.sleep(1)
-        # ActionChains(self.driver).drag_and_drop_by_offset(greenslider, 45,0).perform()  # 3moving green slider in start position
-        # time.sleep(1)
-        # ActionChains(self.driver).drag_and_drop_by_offset(blueslider, 50,0).perform()  ##this will move slider in start position
-        #
-        # ##right
-        #
-        # ActionChains(self.driver).drag_and_drop_by_offset(redslider, 100,0).perform()  ##moving red slider in start position
-        # time.sleep(1)
-        # ActionChains(self.driver).drag_and_drop_by_offset(greenslider, 100,0).perform()  # 3moving green slider in start position
-        # time.sleep(1)
-        # ActionChains(self.driver).drag_and_drop_by_offset(blueslider, 100,0).perform()  ##this will move slider in start position
+        # left moving using pixels
+        ActionChains(self.driver).drag_and_drop_by_offset(redslider,-100,0).perform()##moving red slider in start position
+        time.sleep(1)
+        ActionChains(self.driver).drag_and_drop_by_offset(greenslider,-100,0).perform()#3moving green slider in start position
+        time.sleep(1)
+        ActionChains(self.driver).drag_and_drop_by_offset(blueslider,-100,0).perform()##this will move slider in start position
+        time.sleep(1)
+
+        ##center
+
+        ActionChains(self.driver).drag_and_drop_by_offset(redslider, 40,0).perform()  ##moving red slider in start position
+        time.sleep(1)
+        ActionChains(self.driver).drag_and_drop_by_offset(greenslider, 45,0).perform()  # 3moving green slider in start position
+        time.sleep(1)
+        ActionChains(self.driver).drag_and_drop_by_offset(blueslider, 50,0).perform()  ##this will move slider in start position
+
+        ##right
+
+        ActionChains(self.driver).drag_and_drop_by_offset(redslider, 100,0).perform()  ##moving red slider in start position
+        time.sleep(1)
+        ActionChains(self.driver).drag_and_drop_by_offset(greenslider, 100,0).perform()  # 3moving green slider in start position
+        time.sleep(1)
+        ActionChains(self.driver).drag_and_drop_by_offset(blueslider, 100,0).perform()  ##this will move slider in start position
 
 
 
@@ -84,19 +84,19 @@ class sliders():
         # self.driver.execute_script("arguments[0].style.left = '75%'", greenslider)
 
         # Get the width of the slider element
-
-        fullslidergreen = self.driver.find_element_by_xpath("/html/body/div[2]")
-
-        slider_width = self.driver.execute_script("return arguments[0].offsetWidth", fullslidergreen)
-        print("sldier width",slider_width)
-        # Calculate the horizontal offset for the drag and drop action
-        drag_offset = int(slider_width * 0.45)
-        print("drag ofset is",drag_offset)
-        style_attribute = greenslider.get_attribute("style")
-        print("berfore moving current style", style_attribute)
-        ActionChains(self.driver).drag_and_drop_by_offset(greenslider,-drag_offset,0).perform()
-        style_attribute = greenslider.get_attribute("style")
-        print("after moving current style", style_attribute)
+        #
+        # fullslidergreen = self.driver.find_element_by_xpath("/html/body/div[2]")
+        #
+        # slider_width = self.driver.execute_script("return arguments[0].offsetWidth", fullslidergreen)
+        # print("sldier width",slider_width)
+        # # Calculate the horizontal offset for the drag and drop action
+        # drag_offset = int(slider_width * 0.45)
+        # print("drag ofset is",drag_offset)
+        # style_attribute = greenslider.get_attribute("style")
+        # print("berfore moving current style", style_attribute)
+        # ActionChains(self.driver).drag_and_drop_by_offset(greenslider,-drag_offset,0).perform()
+        # style_attribute = greenslider.get_attribute("style")
+        # print("after moving current style", style_attribute)
 
     def double_slider_execution(self):
 
