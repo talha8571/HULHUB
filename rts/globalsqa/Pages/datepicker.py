@@ -34,7 +34,7 @@ class datePicker():
         converted_year=int(current_year)#converting the year into integer for subtraction
         expected_year=converted_year-1 #performing subtraction
         expected_year_1=converted_year+1
-        print(expected_year) #printing the expected year
+        print("expcted year",expected_year) #printing the expected year
 
 
          ##loop for the previous month and year
@@ -57,7 +57,7 @@ class datePicker():
             captured_year = self.driver.find_element_by_xpath(self.year).text  # capturing the year
 
             if captured_month==current_month and captured_year==str(expected_year_1):
-                print("Expected Date Found ",current_month,expected_year, "=" ,captured_month, captured_year)
+                print("Expected Date Found ",current_month,expected_year_1, "=" ,captured_month, captured_year)
                 time.sleep(2)
                 break
 

@@ -27,6 +27,16 @@ from globalsqa.Pages.hulhubdropdown import dropdownhulhub
 from globalsqa.Pages.new_window import new_window
 from globalsqa.Pages.toolbar import toolbarClass
 from globalsqa.Pages.datepicker import datePicker
+from globalsqa.Pages.Alerts import alerts
+
+
+
+
+
+
+
+
+
 class SQA(unittest.TestCase):
 
     @classmethod
@@ -157,6 +167,18 @@ class SQA(unittest.TestCase):
         driver.implicitly_wait(10)
         dp=datePicker(driver)
         dp.date_picker_method()
+
+    def test_alerts(self):
+        driver=self.driver
+        driver.implicitly_wait(20)
+        ale=alerts(driver)
+        ale.alertwithok()##alert with ok button
+        time.sleep(2)
+        ale.alertWithOkAndCancel()#alert with ok and cancel button
+        time.sleep(2)
+        ale.text_alertbox()#alert
+
+
 
 
 
