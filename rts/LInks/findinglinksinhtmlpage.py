@@ -1,10 +1,27 @@
-import time
-import requests
 import unittest
 from selenium import webdriver
+from selenium import webdriver
+import time
+import string
+import unittest
+from selenium import webdriver
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+import time
+from selenium.webdriver.support.select import Select
+from selenium.webdriver import ActionChains
+# from webdriver_manager.chrome import ChromeDriverManager
+import HtmlTestRunner
 from webdriver_manager.chrome import ChromeDriverManager
+import random
+import string
+from colorama import Fore
 
-class BrokenLinksTest(unittest.TestCase):
+import re
+
+######## This code finds all the links present in the application
+
+class broken(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.driver = webdriver.Chrome(ChromeDriverManager().install())
@@ -15,30 +32,21 @@ class BrokenLinksTest(unittest.TestCase):
         cls.driver.maximize_window()
         cls.driver.implicitly_wait(20)
 
-    def test_broken_links(self):
-        time.sleep(6)
+    def test_a_brokenlinks(self):
+        time.sleep(5)
         # Find all <a> tags in the page
         links = self.driver.find_elements_by_tag_name("a")
         # Extract the href attribute from each link
         link_urls = [link.get_attribute("href") for link in links]
 
-        # Check for broken links
+        # Print the URLs
         for link_url in link_urls:
-            if link_url and link_url.startswith(("http://", "https://")):
-                if any(ext in link_url.lower() for ext in [".mp4", ".avi", ".mov"]):
-                    response = requests.head(link_url)
-                    print(f"Video URL (HEAD): {link_url} - Status Code: {response.status_code}")
-                else:
-                    response = requests.get(link_url)
-                    print(f"URL (GET): {link_url} - Status Code: {response.status_code}")
-            elif link_url:
-                print(f"Ignored URL: {link_url}")
-            else:
-                print("Invalid URL: None")
+            print(link_url)
 
     @classmethod
     def tearDownClass(cls):
-        cls.driver.quit()
+        cls.driver.close()
+
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='C:/Users/1154-Talha/PycharmProjects/rts/Practice'))
