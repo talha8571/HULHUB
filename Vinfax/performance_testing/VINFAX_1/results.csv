@@ -1,0 +1,104 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1689145451170,2915,https://vinfax-api.designitic.com/,200,OK,Thread Group 1-1,text,true,,822709,14883,1,1,https://vinfax-api.designitic.com/,1015,0,532
+1689145451170,1108,https://vinfax-api.designitic.com/-0,200,OK,Thread Group 1-1,text,true,,8768,505,1,1,https://vinfax-api.designitic.com/,1015,0,532
+1689145452369,621,https://vinfax-api.designitic.com/-1,200,OK,Thread Group 1-1,bin,true,,20146,1259,1,1,https://vinfax-api.designitic.com/assets/images/logo-sm.png,427,0,0
+1689145452371,1194,https://vinfax-api.designitic.com/-2,200,OK,Thread Group 1-1,text,true,,156235,1262,1,1,https://vinfax-api.designitic.com/assets/css/bootstrap.min.css,512,0,85
+1689145452371,1342,https://vinfax-api.designitic.com/-3,200,OK,Thread Group 1-1,text,true,,289191,1254,1,1,https://vinfax-api.designitic.com/assets/css/icons.css,497,0,76
+1689145452370,497,https://vinfax-api.designitic.com/-4,200,OK,Thread Group 1-1,text,true,,3088,1262,1,1,https://vinfax-api.designitic.com/assets/css/metismenu.min.css,497,0,75
+1689145452370,1715,https://vinfax-api.designitic.com/-5,200,OK,Thread Group 1-1,text,true,,157787,1783,1,1,https://vinfax-api.designitic.com/assets/css/style.css,288,0,57
+1689145452370,874,https://vinfax-api.designitic.com/-0,200,OK,,text,true,,150673,1254,0,0,https://vinfax-api.designitic.com/assets/css/style.css,288,0,57
+1689145453518,567,https://vinfax-api.designitic.com/-1,200,OK,ResDownload-Thread-6,text,true,,7114,529,0,0,"https://fonts.googleapis.com/css?family=Roboto:400,500,700",563,0,417
+1689145452372,983,https://vinfax-api.designitic.com/-6,200,OK,Thread Group 1-1,text,true,,87417,1257,1,1,https://vinfax-api.designitic.com/assets/js/jquery.min.js,503,0,81
+1689145452992,668,https://vinfax-api.designitic.com/-7,200,OK,Thread Group 1-1,text,true,,79125,1267,1,1,https://vinfax-api.designitic.com/assets/js/bootstrap.bundle.min.js,227,0,0
+1689145453070,228,https://vinfax-api.designitic.com/-8,200,OK,Thread Group 1-1,text,true,,6295,1260,1,1,https://vinfax-api.designitic.com/assets/js/metisMenu.min.js,228,0,0
+1689145453301,312,https://vinfax-api.designitic.com/-9,200,OK,Thread Group 1-1,text,true,,6817,1256,1,1,https://vinfax-api.designitic.com/assets/js/waves.min.js,312,0,0
+1689145453355,228,https://vinfax-api.designitic.com/-10,200,OK,Thread Group 1-1,text,true,,5212,1268,1,1,https://vinfax-api.designitic.com/assets/js/jquery.slimscroll.min.js,228,0,0
+1689145453584,230,https://vinfax-api.designitic.com/-11,200,OK,Thread Group 1-1,text,true,,2628,1250,1,1,https://vinfax-api.designitic.com/assets/js/app.js,229,0,0
+1689145459785,3867,https://vinfax-api.designitic.com/login,200,OK,Thread Group 1-1,text,true,,968413,37011,1,1,https://vinfax-api.designitic.com/user/dashboard,523,0,0
+1689145459785,523,https://vinfax-api.designitic.com/login-0,302,Found,Thread Group 1-1,text,true,,1829,1405,1,1,https://vinfax-api.designitic.com/login,523,0,0
+1689145460308,641,https://vinfax-api.designitic.com/login-1,200,OK,Thread Group 1-1,text,true,,27277,1297,1,1,https://vinfax-api.designitic.com/user/dashboard,445,0,0
+1689145461026,424,https://vinfax-api.designitic.com/login-2,304,Not Modified,Thread Group 1-1,,true,,393,1395,1,1,https://vinfax-api.designitic.com/assets/images/logo-sm.png,0,0,0
+1689145461025,225,https://vinfax-api.designitic.com/login-3,200,OK,Thread Group 1-1,text,true,,7052,1336,1,1,https://vinfax-api.designitic.com/assets/plugins/jvectormap/jquery-jvectormap-2.0.2.css,225,0,0
+1689145461026,424,https://vinfax-api.designitic.com/login-4,200,OK,Thread Group 1-1,text,true,,5288,1338,1,1,https://vinfax-api.designitic.com/assets/plugins/datatables/dataTables.bootstrap4.min.css,424,0,0
+1689145461029,423,https://vinfax-api.designitic.com/login-5,200,OK,Thread Group 1-1,text,true,,3301,1335,1,1,https://vinfax-api.designitic.com/assets/plugins/datatables/buttons.bootstrap4.min.css,423,0,0
+1689145461029,440,https://vinfax-api.designitic.com/login-6,304,Not Modified,Thread Group 1-1,,true,,417,1399,1,1,https://vinfax-api.designitic.com/assets/css/bootstrap.min.css,0,0,0
+1689145461032,436,https://vinfax-api.designitic.com/login-7,304,Not Modified,Thread Group 1-1,,true,,417,1391,1,1,https://vinfax-api.designitic.com/assets/css/icons.css,0,0,0
+1689145461265,226,https://vinfax-api.designitic.com/login-8,304,Not Modified,Thread Group 1-1,,true,,415,1397,1,1,https://vinfax-api.designitic.com/assets/css/metismenu.min.css,0,0,0
+1689145461465,226,https://vinfax-api.designitic.com/login-9,304,Not Modified,Thread Group 1-1,,true,,417,1391,1,1,https://vinfax-api.designitic.com/assets/css/style.css,0,0,0
+1689145461470,226,https://vinfax-api.designitic.com/login-10,200,OK,Thread Group 1-1,text,true,,948,1304,1,1,https://vinfax-api.designitic.com/assets/css/custom.css,226,0,0
+1689145461471,223,https://vinfax-api.designitic.com/login-11,200,OK,Thread Group 1-1,text,true,,881,1317,1,1,https://vinfax-api.designitic.com/assets/images/users/user-solid.svg,223,0,0
+1689145461472,422,https://vinfax-api.designitic.com/login-12,304,Not Modified,Thread Group 1-1,,true,,417,1394,1,1,https://vinfax-api.designitic.com/assets/js/jquery.min.js,0,0,0
+1689145461474,422,https://vinfax-api.designitic.com/login-13,200,OK,Thread Group 1-1,text,true,,923,1303,1,1,https://vinfax-api.designitic.com/assets/js/payment.js,422,0,0
+1689145461494,423,https://vinfax-api.designitic.com/login-14,304,Not Modified,Thread Group 1-1,,true,,417,1404,1,1,https://vinfax-api.designitic.com/assets/js/bootstrap.bundle.min.js,0,0,0
+1689145461694,227,https://vinfax-api.designitic.com/login-15,304,Not Modified,Thread Group 1-1,,true,,416,1396,1,1,https://vinfax-api.designitic.com/assets/js/metisMenu.min.js,0,0,0
+1689145461698,425,https://vinfax-api.designitic.com/login-16,304,Not Modified,Thread Group 1-1,,true,,416,1392,1,1,https://vinfax-api.designitic.com/assets/js/waves.min.js,0,0,0
+1689145461702,424,https://vinfax-api.designitic.com/login-17,304,Not Modified,Thread Group 1-1,,true,,416,1404,1,1,https://vinfax-api.designitic.com/assets/js/jquery.slimscroll.min.js,0,0,0
+1689145461897,1231,https://vinfax-api.designitic.com/login-18,200,OK,Thread Group 1-1,text,true,,147574,1314,1,1,https://vinfax-api.designitic.com/assets/plugins/moment/moment.js,234,0,0
+1689145461898,932,https://vinfax-api.designitic.com/login-19,200,OK,Thread Group 1-1,text,true,,413027,1326,1,1,https://vinfax-api.designitic.com/assets/plugins/apexcharts/apexcharts.min.js,232,0,0
+1689145461921,1512,https://vinfax-api.designitic.com/login-20,200,OK,Thread Group 1-1,text,true,,24147,582,1,1,https://apexcharts.com/samples/assets/irregular-data-series.js,1255,0,993
+1689145461922,1268,https://vinfax-api.designitic.com/login-21,200,OK,Thread Group 1-1,text,true,,555,571,1,1,https://apexcharts.com/samples/assets/series1000.js,1268,0,998
+1689145462124,1373,https://vinfax-api.designitic.com/login-22,200,OK,Thread Group 1-1,text,true,,22500,565,1,1,https://apexcharts.com/samples/assets/ohlc.js,1373,0,828
+1689145462128,822,https://vinfax-api.designitic.com/login-23,200,OK,Thread Group 1-1,text,true,,105313,1339,1,1,https://vinfax-api.designitic.com/assets/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js,231,0,0
+1689145462831,821,https://vinfax-api.designitic.com/login-24,200,OK,Thread Group 1-1,text,true,,112558,1339,1,1,https://vinfax-api.designitic.com/assets/plugins/jvectormap/jquery-jvectormap-us-aea-en.js,229,0,0
+1689145462950,682,https://vinfax-api.designitic.com/login-25,200,OK,Thread Group 1-1,text,true,,83758,1333,1,1,https://vinfax-api.designitic.com/assets/plugins/datatables/jquery.dataTables.min.js,228,0,0
+1689145463130,226,https://vinfax-api.designitic.com/login-26,200,OK,Thread Group 1-1,text,true,,2557,1337,1,1,https://vinfax-api.designitic.com/assets/plugins/datatables/dataTables.bootstrap4.min.js,226,0,0
+1689145463191,228,https://vinfax-api.designitic.com/login-27,200,OK,Thread Group 1-1,text,true,,4369,1322,1,1,https://vinfax-api.designitic.com/assets/pages/jquery.dashboard-2.init.js,227,0,0
+1689145463358,231,https://vinfax-api.designitic.com/login-28,304,Not Modified,Thread Group 1-1,,true,,415,1385,1,1,https://vinfax-api.designitic.com/assets/js/app.js,0,0,0
+1689145463795,1851,https://vinfax-api.designitic.com/user/subscription,200,OK,Thread Group 1-1,text,true,,40641,35610,1,1,https://vinfax-api.designitic.com/user/subscription,253,0,0
+1689145463795,263,https://vinfax-api.designitic.com/user/subscription-0,200,OK,Thread Group 1-1,text,true,,29217,1251,1,1,https://vinfax-api.designitic.com/user/subscription,253,0,0
+1689145464092,224,https://vinfax-api.designitic.com/user/subscription-1,304,Not Modified,Thread Group 1-1,,true,,393,1346,1,1,https://vinfax-api.designitic.com/assets/images/logo-sm.png,0,0,0
+1689145464094,225,https://vinfax-api.designitic.com/user/subscription-2,304,Not Modified,Thread Group 1-1,,true,,416,1374,1,1,https://vinfax-api.designitic.com/assets/plugins/jvectormap/jquery-jvectormap-2.0.2.css,0,0,0
+1689145464097,229,https://vinfax-api.designitic.com/user/subscription-3,304,Not Modified,Thread Group 1-1,,true,,416,1376,1,1,https://vinfax-api.designitic.com/assets/plugins/datatables/dataTables.bootstrap4.min.css,0,0,0
+1689145464099,227,https://vinfax-api.designitic.com/user/subscription-4,304,Not Modified,Thread Group 1-1,,true,,415,1372,1,1,https://vinfax-api.designitic.com/assets/plugins/datatables/buttons.bootstrap4.min.css,0,0,0
+1689145464099,227,https://vinfax-api.designitic.com/user/subscription-5,304,Not Modified,Thread Group 1-1,,true,,417,1350,1,1,https://vinfax-api.designitic.com/assets/css/bootstrap.min.css,0,0,0
+1689145464101,419,https://vinfax-api.designitic.com/user/subscription-6,304,Not Modified,Thread Group 1-1,,true,,417,1342,1,1,https://vinfax-api.designitic.com/assets/css/icons.css,0,0,0
+1689145464318,224,https://vinfax-api.designitic.com/user/subscription-7,304,Not Modified,Thread Group 1-1,,true,,415,1348,1,1,https://vinfax-api.designitic.com/assets/css/metismenu.min.css,0,0,0
+1689145464321,422,https://vinfax-api.designitic.com/user/subscription-8,304,Not Modified,Thread Group 1-1,,true,,417,1342,1,1,https://vinfax-api.designitic.com/assets/css/style.css,0,0,0
+1689145464328,225,https://vinfax-api.designitic.com/user/subscription-9,304,Not Modified,Thread Group 1-1,,true,,415,1341,1,1,https://vinfax-api.designitic.com/assets/css/custom.css,0,0,0
+1689145464328,224,https://vinfax-api.designitic.com/user/subscription-10,304,Not Modified,Thread Group 1-1,,true,,392,1354,1,1,https://vinfax-api.designitic.com/assets/images/users/user-solid.svg,0,0,0
+1689145464328,424,https://vinfax-api.designitic.com/user/subscription-11,304,Not Modified,Thread Group 1-1,,true,,417,1345,1,1,https://vinfax-api.designitic.com/assets/js/jquery.min.js,0,0,0
+1689145464522,420,https://vinfax-api.designitic.com/user/subscription-12,304,Not Modified,Thread Group 1-1,,true,,415,1340,1,1,https://vinfax-api.designitic.com/assets/js/payment.js,0,0,0
+1689145464544,231,https://vinfax-api.designitic.com/user/subscription-13,304,Not Modified,Thread Group 1-1,,true,,417,1355,1,1,https://vinfax-api.designitic.com/assets/js/bootstrap.bundle.min.js,0,0,0
+1689145464554,227,https://vinfax-api.designitic.com/user/subscription-14,304,Not Modified,Thread Group 1-1,,true,,416,1347,1,1,https://vinfax-api.designitic.com/assets/js/metisMenu.min.js,0,0,0
+1689145464557,225,https://vinfax-api.designitic.com/user/subscription-15,304,Not Modified,Thread Group 1-1,,true,,416,1343,1,1,https://vinfax-api.designitic.com/assets/js/waves.min.js,0,0,0
+1689145464745,426,https://vinfax-api.designitic.com/user/subscription-16,304,Not Modified,Thread Group 1-1,,true,,416,1355,1,1,https://vinfax-api.designitic.com/assets/js/jquery.slimscroll.min.js,0,0,0
+1689145464754,424,https://vinfax-api.designitic.com/user/subscription-17,304,Not Modified,Thread Group 1-1,,true,,417,1353,1,1,https://vinfax-api.designitic.com/assets/plugins/moment/moment.js,0,0,0
+1689145464776,226,https://vinfax-api.designitic.com/user/subscription-18,304,Not Modified,Thread Group 1-1,,true,,417,1365,1,1,https://vinfax-api.designitic.com/assets/plugins/apexcharts/apexcharts.min.js,0,0,0
+1689145464783,272,https://vinfax-api.designitic.com/user/subscription-19,304,Not Modified,Thread Group 1-1,,true,,533,615,1,1,https://apexcharts.com/samples/assets/irregular-data-series.js,0,0,0
+1689145464784,258,https://vinfax-api.designitic.com/user/subscription-20,304,Not Modified,Thread Group 1-1,,true,,486,601,1,1,https://apexcharts.com/samples/assets/series1000.js,0,0,0
+1689145464944,269,https://vinfax-api.designitic.com/user/subscription-21,304,Not Modified,Thread Group 1-1,,true,,465,598,1,1,https://apexcharts.com/samples/assets/ohlc.js,0,0,0
+1689145465004,232,https://vinfax-api.designitic.com/user/subscription-22,304,Not Modified,Thread Group 1-1,,true,,417,1378,1,1,https://vinfax-api.designitic.com/assets/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js,0,0,0
+1689145465044,221,https://vinfax-api.designitic.com/user/subscription-23,304,Not Modified,Thread Group 1-1,,true,,417,1378,1,1,https://vinfax-api.designitic.com/assets/plugins/jvectormap/jquery-jvectormap-us-aea-en.js,0,0,0
+1689145465057,424,https://vinfax-api.designitic.com/user/subscription-24,304,Not Modified,Thread Group 1-1,,true,,417,1372,1,1,https://vinfax-api.designitic.com/assets/plugins/datatables/jquery.dataTables.min.js,0,0,0
+1689145465173,431,https://vinfax-api.designitic.com/user/subscription-25,304,Not Modified,Thread Group 1-1,,true,,415,1374,1,1,https://vinfax-api.designitic.com/assets/plugins/datatables/dataTables.bootstrap4.min.js,0,0,0
+1689145465180,227,https://vinfax-api.designitic.com/user/subscription-26,304,Not Modified,Thread Group 1-1,,true,,415,1359,1,1,https://vinfax-api.designitic.com/assets/pages/jquery.dashboard-2.init.js,0,0,0
+1689145465213,433,https://vinfax-api.designitic.com/user/subscription-27,304,Not Modified,Thread Group 1-1,,true,,415,1336,1,1,https://vinfax-api.designitic.com/assets/js/app.js,0,0,0
+1689145469659,2443,https://vinfax-api.designitic.com/user/download-history,200,OK,Thread Group 1-1,text,true,,81028,35614,1,1,https://vinfax-api.designitic.com/user/download-history,248,0,0
+1689145469659,665,https://vinfax-api.designitic.com/user/download-history-0,200,OK,Thread Group 1-1,text,true,,69604,1255,1,1,https://vinfax-api.designitic.com/user/download-history,248,0,0
+1689145470339,223,https://vinfax-api.designitic.com/user/download-history-1,304,Not Modified,Thread Group 1-1,,true,,393,1346,1,1,https://vinfax-api.designitic.com/assets/images/logo-sm.png,0,0,0
+1689145470338,224,https://vinfax-api.designitic.com/user/download-history-2,304,Not Modified,Thread Group 1-1,,true,,416,1374,1,1,https://vinfax-api.designitic.com/assets/plugins/jvectormap/jquery-jvectormap-2.0.2.css,0,0,0
+1689145470340,421,https://vinfax-api.designitic.com/user/download-history-3,304,Not Modified,Thread Group 1-1,,true,,416,1376,1,1,https://vinfax-api.designitic.com/assets/plugins/datatables/dataTables.bootstrap4.min.css,0,0,0
+1689145470341,423,https://vinfax-api.designitic.com/user/download-history-4,304,Not Modified,Thread Group 1-1,,true,,415,1372,1,1,https://vinfax-api.designitic.com/assets/plugins/datatables/buttons.bootstrap4.min.css,0,0,0
+1689145470342,419,https://vinfax-api.designitic.com/user/download-history-5,304,Not Modified,Thread Group 1-1,,true,,417,1350,1,1,https://vinfax-api.designitic.com/assets/css/bootstrap.min.css,0,0,0
+1689145470344,425,https://vinfax-api.designitic.com/user/download-history-6,304,Not Modified,Thread Group 1-1,,true,,417,1342,1,1,https://vinfax-api.designitic.com/assets/css/icons.css,0,0,0
+1689145470563,228,https://vinfax-api.designitic.com/user/download-history-7,304,Not Modified,Thread Group 1-1,,true,,415,1348,1,1,https://vinfax-api.designitic.com/assets/css/metismenu.min.css,0,0,0
+1689145470563,225,https://vinfax-api.designitic.com/user/download-history-8,304,Not Modified,Thread Group 1-1,,true,,417,1342,1,1,https://vinfax-api.designitic.com/assets/css/style.css,0,0,0
+1689145470761,493,https://vinfax-api.designitic.com/user/download-history-9,304,Not Modified,Thread Group 1-1,,true,,415,1341,1,1,https://vinfax-api.designitic.com/assets/css/custom.css,0,0,0
+1689145470762,238,https://vinfax-api.designitic.com/user/download-history-10,304,Not Modified,Thread Group 1-1,,true,,392,1354,1,1,https://vinfax-api.designitic.com/assets/images/users/user-solid.svg,0,0,0
+1689145470765,235,https://vinfax-api.designitic.com/user/download-history-11,304,Not Modified,Thread Group 1-1,,true,,417,1345,1,1,https://vinfax-api.designitic.com/assets/js/jquery.min.js,0,0,0
+1689145470769,420,https://vinfax-api.designitic.com/user/download-history-12,304,Not Modified,Thread Group 1-1,,true,,415,1340,1,1,https://vinfax-api.designitic.com/assets/js/payment.js,0,0,0
+1689145470789,223,https://vinfax-api.designitic.com/user/download-history-13,304,Not Modified,Thread Group 1-1,,true,,417,1355,1,1,https://vinfax-api.designitic.com/assets/js/bootstrap.bundle.min.js,0,0,0
+1689145470792,422,https://vinfax-api.designitic.com/user/download-history-14,304,Not Modified,Thread Group 1-1,,true,,416,1347,1,1,https://vinfax-api.designitic.com/assets/js/metisMenu.min.js,0,0,0
+1689145471000,227,https://vinfax-api.designitic.com/user/download-history-15,304,Not Modified,Thread Group 1-1,,true,,416,1343,1,1,https://vinfax-api.designitic.com/assets/js/waves.min.js,0,0,0
+1689145471000,421,https://vinfax-api.designitic.com/user/download-history-16,304,Not Modified,Thread Group 1-1,,true,,416,1355,1,1,https://vinfax-api.designitic.com/assets/js/jquery.slimscroll.min.js,0,0,0
+1689145471013,420,https://vinfax-api.designitic.com/user/download-history-17,304,Not Modified,Thread Group 1-1,,true,,417,1353,1,1,https://vinfax-api.designitic.com/assets/plugins/moment/moment.js,0,0,0
+1689145471189,224,https://vinfax-api.designitic.com/user/download-history-18,304,Not Modified,Thread Group 1-1,,true,,417,1365,1,1,https://vinfax-api.designitic.com/assets/plugins/apexcharts/apexcharts.min.js,0,0,0
+1689145471215,268,https://vinfax-api.designitic.com/user/download-history-19,304,Not Modified,Thread Group 1-1,,true,,533,615,1,1,https://apexcharts.com/samples/assets/irregular-data-series.js,0,0,0
+1689145471228,276,https://vinfax-api.designitic.com/user/download-history-20,304,Not Modified,Thread Group 1-1,,true,,486,601,1,1,https://apexcharts.com/samples/assets/series1000.js,0,0,0
+1689145471255,847,https://vinfax-api.designitic.com/user/download-history-21,304,Not Modified,Thread Group 1-1,,true,,465,598,1,1,https://apexcharts.com/samples/assets/ohlc.js,0,0,0
+1689145471413,232,https://vinfax-api.designitic.com/user/download-history-22,304,Not Modified,Thread Group 1-1,,true,,417,1378,1,1,https://vinfax-api.designitic.com/assets/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js,0,0,0
+1689145471422,231,https://vinfax-api.designitic.com/user/download-history-23,304,Not Modified,Thread Group 1-1,,true,,417,1378,1,1,https://vinfax-api.designitic.com/assets/plugins/jvectormap/jquery-jvectormap-us-aea-en.js,0,0,0
+1689145471434,426,https://vinfax-api.designitic.com/user/download-history-24,304,Not Modified,Thread Group 1-1,,true,,417,1372,1,1,https://vinfax-api.designitic.com/assets/plugins/datatables/jquery.dataTables.min.js,0,0,0
+1689145471484,228,https://vinfax-api.designitic.com/user/download-history-25,304,Not Modified,Thread Group 1-1,,true,,415,1374,1,1,https://vinfax-api.designitic.com/assets/plugins/datatables/dataTables.bootstrap4.min.js,0,0,0
+1689145471505,231,https://vinfax-api.designitic.com/user/download-history-26,304,Not Modified,Thread Group 1-1,,true,,415,1359,1,1,https://vinfax-api.designitic.com/assets/pages/jquery.dashboard-2.init.js,0,0,0
+1689145471646,427,https://vinfax-api.designitic.com/user/download-history-27,304,Not Modified,Thread Group 1-1,,true,,415,1336,1,1,https://vinfax-api.designitic.com/assets/js/app.js,0,0,0
