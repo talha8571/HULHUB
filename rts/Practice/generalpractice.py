@@ -11,23 +11,6 @@ from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
 
 
-class dragdrop(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        cls.driver=webdriver.Chrome(ChromeDriverManager().install())
-        cls.driver.get("https://www.hulhub.com/")
-        cls.driver.maximize_window()
-        cls.driver.implicitly_wait(20)
-
-
-    def test_draganddrop_method(self):
-
-        k=self.driver.find_elements_by_tag_name("a")
-        w=[link.get_attribute("href")for link in k]
-
-        for t in w:
-            print(t)
-
         # z=self.driver.find_elements_by_xpath("//*[@id]")
         # w=[id.get_attribute("id")for id in z]
         #
@@ -65,8 +48,7 @@ class dragdrop(unittest.TestCase):
     #     ActionChains(self.driver).drag_and_drop_by_offset(element,588, 129).perform()##moving the element with help of ofsett
 
 
-if __name__=='__main__':
-    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output="C:/Users/1154-Talha/PycharmProjects/rts/Practice"))
-
+#     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output="C:/Users/1154-Talha/PycharmProjects/rts/Practice"))
+#
 
 
