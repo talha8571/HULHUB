@@ -41,7 +41,8 @@ class SQA(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.driver=webdriver.Chrome(ChromeDriverManager().install())
+        # cls.driver=webdriver.Chrome(ChromeDriverManager().install())
+        cls.driver = webdriver.Chrome(executable_path='C:/Users/1154-Talha/PycharmProjects/rts/webdriver/chromedriver_win64/chromedriver.exe')
         cls.driver.get("https://www.globalsqa.com/demo-site/")
         cls.driver.implicitly_wait(10)
         cls.driver.maximize_window()
@@ -181,7 +182,7 @@ class SQA(unittest.TestCase):
 
 
 
-
+    #
     # @classmethod
     # def tearDownClass(cls):
     #     cls.driver.quit()

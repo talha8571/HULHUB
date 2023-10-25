@@ -112,6 +112,7 @@ class sliders():
 
 
         ActionChains(self.driver).drag_and_drop_by_offset(lhs,45,0).perform()
+
         time.sleep(2)
         ActionChains(self.driver).drag_and_drop_by_offset(rhs,45,0).perform()
 
