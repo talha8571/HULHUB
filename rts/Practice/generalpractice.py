@@ -3,13 +3,19 @@ import unittest
 import time
 
 import HtmlTestRunner
+from selenium.webdriver.common.keys import Keys
+
 import requests
 import unittest
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.chrome.options import Options
 
+
+option = webdriver.ChromeOptions()
+option.add_argument("start-maximized")
 
         # z=self.driver.find_elements_by_xpath("//*[@id]")
         # w=[id.get_attribute("id")for id in z]
@@ -48,7 +54,33 @@ from selenium.webdriver.common.action_chains import ActionChains
     #     ActionChains(self.driver).drag_and_drop_by_offset(element,588, 129).perform()##moving the element with help of ofsett
 
 
-#     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output="C:/Users/1154-Talha/PycharmProjects/rts/Practice"))
+class practice(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        cls.driver=webdriver.Chrome(executable_path="C:/Users/1154-Talha/PycharmProjects/rts/webdriver/chromedriver_win64/chromedriver.exe")
+        cls.driver.get("https://www.google.com/")
+        cls.driver.maximize_window()
+        cls.driver.implicitly_wait(30)
+
+
+    def test_a_chrome(self):
+        print(self.driver.current_url)
+        print(self.driver.title)
+        self.driver.find_element_by_xpath("/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/textarea").send_keys("selenium automation")
+        a=ActionChains(self.driver)
+        b=a.send_keys(Keys.ENTER)
+        b.perform()
+
+
+
+    # @classmethod
+    # def tearDownClass(cls):
+    # cls.driver.close()
+
+
+if __name__ == '__main__':
+    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output="C:/Users/1154-Talha/PycharmProjects/rts/Practice"))
 #
 
 

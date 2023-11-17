@@ -28,7 +28,10 @@ from globalsqa.Pages.new_window import new_window
 from globalsqa.Pages.toolbar import toolbarClass
 from globalsqa.Pages.datepicker import datePicker
 from globalsqa.Pages.Alerts import alerts
+from selenium.webdriver.chrome.service import Service
 
+option = webdriver.ChromeOptions()
+option.add_argument("start-maximized")
 
 
 
@@ -42,10 +45,14 @@ class SQA(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         # cls.driver=webdriver.Chrome(ChromeDriverManager().install())
-        cls.driver = webdriver.Chrome(executable_path='C:/Users/1154-Talha/PycharmProjects/rts/webdriver/chromedriver_win64/chromedriver.exe')
+        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=option)
+        # cls.driver = webdriver.Chrome(executable_path='C:/Users/1154-Talha/PycharmProjects/rts/webdriver/chromedriver_win64/chromedriver.exe')
         cls.driver.get("https://www.globalsqa.com/demo-site/")
         cls.driver.implicitly_wait(10)
         cls.driver.maximize_window()
+
+
+
 
 
     def test_a_tabs(self):

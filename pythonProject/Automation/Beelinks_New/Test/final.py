@@ -41,8 +41,8 @@ class HOV(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-
-        cls.driver=webdriver.Chrome(ChromeDriverManager().install())
+        cls.driver = webdriver.Chrome(executable_path="C:/Users/1154-Talha/PycharmProjects/rts/webdriver/chromedriver_win64/chromedriver.exe")
+        # cls.driver=webdriver.Chrome(ChromeDriverManager().install())
         cls.driver.implicitly_wait(30)
         cls.driver.get("https://new.beelinks.solutions/login")
         # a = cls.driver.find_element_by_xpath
